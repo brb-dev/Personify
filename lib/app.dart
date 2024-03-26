@@ -1,9 +1,12 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import 'config.dart';
 import 'locator.dart';
+import 'presentation/core/routes/app_router.dart';
+import 'presentation/core/routes/router_observer.dart';
 
 Future<void> initialSetup({required Flavor flavor}) async {
   setupLocator();
@@ -17,9 +20,7 @@ void runAppWithCrashlyticsAndLocalization({required Flavor flavor}) {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
       runApp(
-        App(
-          flavor: flavor.name,
-        ),
+        const App(),
       );
     },
     (error, stackTrace) {
@@ -29,21 +30,21 @@ void runAppWithCrashlyticsAndLocalization({required Flavor flavor}) {
 }
 
 class App extends StatelessWidget {
-  const App({
-    super.key,
-    required this.flavor,
-  });
-
-  final String flavor;
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello Alindor $flavor'),
-        ),
+    final router = locator<AppRouter>();
+
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerDelegate: AutoRouterDelegate(
+        router,
+        navigatorObservers: () => [
+          locator<RouterObserver>(),
+        ],
       ),
+      routeInformationParser: router.defaultRouteParser(),
     );
   }
 }
