@@ -7,6 +7,7 @@ import 'config.dart';
 import 'locator.dart';
 import 'presentation/core/routes/app_router.dart';
 import 'presentation/core/routes/router_observer.dart';
+import 'presentation/core/theme/app_theme.dart';
 
 Future<void> initialSetup({required Flavor flavor}) async {
   setupLocator();
@@ -38,6 +39,7 @@ class App extends StatelessWidget {
 
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+      theme: appThemeData[AppTheme.dark],
       routerDelegate: AutoRouterDelegate(
         router,
         navigatorObservers: () => [
