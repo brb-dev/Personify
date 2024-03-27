@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "352643907622",
+    "project_id": "personify-alindor-prod",
+    "storage_bucket": "personify-alindor-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352643907622:android:97b48614b3b687163126e7",
+        "android_client_info": {
+          "package_name": "com.alindor.personify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYWMEFfXj91smtN9HSezu2tPWbQpMChgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

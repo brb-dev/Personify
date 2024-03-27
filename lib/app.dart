@@ -1,8 +1,13 @@
 import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:personify/firebase_options.dart';
 
+import 'application/auth/auth_bloc.dart';
 import 'config.dart';
 import 'locator.dart';
 import 'presentation/core/routes/app_router.dart';
@@ -20,6 +25,8 @@ void runAppWithCrashlyticsAndLocalization({required Flavor flavor}) {
   runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform);
       runApp(
         const App(),
       );
@@ -37,16 +44,23 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     final router = locator<AppRouter>();
 
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: appThemeData[AppTheme.dark],
-      routerDelegate: AutoRouterDelegate(
-        router,
-        navigatorObservers: () => [
-          locator<RouterObserver>(),
-        ],
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => locator<AuthBloc>()..add(const AuthEvent.init()),
+        ),
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: appThemeData[AppTheme.dark],
+        routerDelegate: AutoRouterDelegate(
+          router,
+          navigatorObservers: () => [
+            locator<RouterObserver>(),
+          ],
+        ),
+        routeInformationParser: router.defaultRouteParser(),
       ),
-      routeInformationParser: router.defaultRouteParser(),
     );
   }
 }

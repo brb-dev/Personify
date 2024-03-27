@@ -11,7 +11,7 @@ enum AppTheme {
 
 final appThemeData = {
   AppTheme.dark: ThemeData.light().copyWith(
-    scaffoldBackgroundColor: AppColor.skyBlue,
+    scaffoldBackgroundColor: AppColor.black,
     primaryColor: AppColor.black,
     primaryColorLight: AppColor.black,
     canvasColor: AppColor.white,
@@ -32,13 +32,16 @@ ElevatedButtonThemeData _elevatedButtonTheme() {
       backgroundColor: AppColor.black,
       foregroundColor: AppColor.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(24),
+        side: BorderSide(
+          color: AppColor.skyBlue,
+          width: 2.0,
+        ),
       ),
       textStyle: _textTheme().titleMedium,
       elevation: 4,
       disabledBackgroundColor: AppColor.black,
       disabledForegroundColor: AppColor.white,
-      shadowColor: AppColor.black.withOpacity(0.08),
     ),
   );
 }
