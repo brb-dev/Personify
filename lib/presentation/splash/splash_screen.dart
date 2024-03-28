@@ -58,6 +58,7 @@ class _SplashScreenState extends State<SplashScreen>
               initial: (_) => _showLoadingDialog(context),
               loading: (_) => _showLoadingDialog(context),
               authenticated: (authState) {
+                //context.router.popForced();
                 context.router.replaceAll(
                   [
                     const SplashRoute(),

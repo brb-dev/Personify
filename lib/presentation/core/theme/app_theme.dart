@@ -10,7 +10,7 @@ enum AppTheme {
 }
 
 final appThemeData = {
-  AppTheme.dark: ThemeData.light().copyWith(
+  AppTheme.dark: ThemeData.dark().copyWith(
     scaffoldBackgroundColor: AppColor.black,
     primaryColor: AppColor.black,
     primaryColorLight: AppColor.black,
@@ -18,12 +18,24 @@ final appThemeData = {
     colorScheme: _colorScheme(),
     textTheme: _textTheme(),
     elevatedButtonTheme: _elevatedButtonTheme(),
+    appBarTheme: _appBarTheme(),
   ),
-  AppTheme.light: ThemeData.dark().copyWith(),
+  AppTheme.light: ThemeData.light().copyWith(),
 };
 
+AppBarTheme _appBarTheme() {
+  return AppBarTheme(
+    color: AppColor.black,
+    elevation: 0,
+    titleTextStyle: _textTheme().titleLarge,
+  );
+}
+
 ColorScheme _colorScheme() {
-  return const ColorScheme.light().copyWith();
+  return const ColorScheme.dark().copyWith(
+    inversePrimary: AppColor.skyBlue,
+    inverseSurface: AppColor.blue,
+  );
 }
 
 ElevatedButtonThemeData _elevatedButtonTheme() {
