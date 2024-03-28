@@ -24,17 +24,17 @@ class _TranscriptSection extends StatelessWidget {
               bottom: 1,
             ),
             strokeWidth: 1,
-            gradient: _gradient,
+            gradient: _gradient(context: context),
             corners: _corners,
             child: Container(
               height: 44,
               width: double.maxFinite,
               decoration: BoxDecoration(
-                color: AppColor.black,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(
                   22,
                 ),
-                boxShadow: _buttonShadow,
+                boxShadow: _buttonShadow(context: context),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -56,12 +56,25 @@ class _TranscriptSection extends StatelessWidget {
           Expanded(
             child: SizedBox(
               width: MediaQuery.of(context).size.width * 0.7,
-              child: const Text(
-                'Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.',
+              child: ReadMoreText(
+                'Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.',
+                trimMode: TrimMode.Line,
+                trimLines: 4,
+                colorClickableText:
+                    Theme.of(context).colorScheme.inversePrimary,
+                trimCollapsedText: 'Show more',
+                trimExpandedText: '...Show less',
+                lessStyle: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
+                moreStyle: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
                 textAlign: TextAlign.center,
-                softWrap: true,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 3,
               ),
             ),
           ),
@@ -93,12 +106,12 @@ class _TranscriptSection extends StatelessWidget {
         bottomRight: Radius.circular(22),
       );
 
-  LinearGradient get _gradient => LinearGradient(
+  LinearGradient _gradient({required BuildContext context}) => LinearGradient(
         begin: const Alignment(0.07, 0.08),
         end: const Alignment(1, 0.81),
         colors: [
-          AppColor.black,
-          AppColor.skyBlue,
+          Theme.of(context).primaryColor,
+          Theme.of(context).colorScheme.inversePrimary,
         ],
       );
 
@@ -119,9 +132,9 @@ class _TranscriptSection extends StatelessWidget {
         ),
       ];
 
-  List<BoxShadow> get _buttonShadow => [
+  List<BoxShadow> _buttonShadow({required BuildContext context}) => [
         BoxShadow(
-          color: AppColor.skyBlue,
+          color: Theme.of(context).colorScheme.inversePrimary,
           spreadRadius: 3,
           blurRadius: 3,
           offset: const Offset(

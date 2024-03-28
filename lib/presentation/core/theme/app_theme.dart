@@ -35,6 +35,12 @@ ColorScheme _colorScheme() {
   return const ColorScheme.dark().copyWith(
     inversePrimary: AppColor.skyBlue,
     inverseSurface: AppColor.blue,
+    scrim: AppColor.gradient1,
+    shadow: AppColor.gradient2,
+    surface: AppColor.gradient3,
+    tertiary: AppColor.linearGradient1,
+    outline: AppColor.linearGradient2,
+    secondary: AppColor.lightBlue,
   );
 }
 
@@ -82,7 +88,7 @@ TextTheme _textTheme() {
           color: AppColor.white,
         ),
         headlineMedium: BaseStyles.headlineLargeBold.copyWith(
-          color: AppColor.white,
+          color: AppColor.lightGrey,
           fontSize: FontSize.s16,
         ),
         headlineSmall: BaseStyles.headlineSmall.copyWith(
@@ -92,7 +98,7 @@ TextTheme _textTheme() {
           color: AppColor.white,
         ),
         labelMedium: BaseStyles.labelMedium.copyWith(
-          color: AppColor.white,
+          color: AppColor.skyBlue,
         ),
         labelSmall: BaseStyles.bodyLarge.copyWith(
           color: AppColor.white,

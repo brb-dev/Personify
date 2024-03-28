@@ -45,7 +45,7 @@ class _EmotionIndicator extends StatelessWidget {
                     clipBehavior: Clip.antiAlias,
                     elevation: 0,
                     margin: const EdgeInsets.all(0),
-                    color: AppColor.black,
+                    color: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(
                         width: 1,
@@ -58,13 +58,13 @@ class _EmotionIndicator extends StatelessWidget {
                       height: 16,
                       width: 144,
                       decoration: BoxDecoration(
-                        color: AppColor.black,
+                        color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.circular(
                           8,
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColor.skyBlue,
+                            color: Theme.of(context).colorScheme.inversePrimary,
                             spreadRadius: 2,
                             blurRadius: 2,
                             offset: const Offset(
@@ -88,8 +88,8 @@ class _EmotionIndicator extends StatelessWidget {
                                 ),
                                 gradient: LinearGradient(
                                   colors: [
-                                    AppColor.linearGradient1,
-                                    AppColor.linearGradient2,
+                                    Theme.of(context).colorScheme.tertiary,
+                                    Theme.of(context).colorScheme.outline,
                                   ],
                                 ),
                               ),
@@ -102,7 +102,7 @@ class _EmotionIndicator extends StatelessWidget {
                               width: 14,
                               margin: EdgeInsets.only(left: ratingProgress),
                               decoration: BoxDecoration(
-                                color: AppColor.white,
+                                color: Theme.of(context).canvasColor,
                                 borderRadius: BorderRadius.circular(
                                   7,
                                 ),

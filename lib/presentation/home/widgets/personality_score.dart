@@ -9,9 +9,9 @@ class _PersonalityScore extends StatelessWidget {
         12,
       ),
       decoration: BoxDecoration(
-        color: AppColor.gradient1,
+        color: Theme.of(context).colorScheme.scrim,
         border: Border.all(
-          color: AppColor.white,
+          color: Theme.of(context).canvasColor,
           width: 1,
         ),
         borderRadius: BorderRadius.circular(
@@ -19,7 +19,7 @@ class _PersonalityScore extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColor.gradient1.withOpacity(0.13),
+            color: Theme.of(context).colorScheme.scrim.withOpacity(0.13),
             spreadRadius: 2,
             blurRadius: 2,
             offset: const Offset(
@@ -37,7 +37,8 @@ class _PersonalityScore extends StatelessWidget {
               height: 45,
               width: 46,
               padding: const EdgeInsets.all(13),
-              decoration: IconButtonStyleHelper.fillLightBlueA,
+              decoration:
+                  IconButtonStyleHelper.fillLightBlueA(context: context),
               child: CustomImageView(
                 imagePath: AppAssets.graphIcon,
               ),

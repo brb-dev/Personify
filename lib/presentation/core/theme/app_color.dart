@@ -13,6 +13,7 @@ class AppColor {
 
   static Color linearGradient1 = HexColor.fromHex('#021D5A');
   static Color linearGradient2 = HexColor.fromHex('#4CA7E8');
+  static Color lightGrey = HexColor.fromHex('#828282');
 }
 
 extension HexColor on Color {

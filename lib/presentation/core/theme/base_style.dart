@@ -22,8 +22,7 @@ class BaseStyles {
   ///H3 Emphasized
   static TextStyle headlineSmall = const TextStyle(
     fontFamily: FontConstants.fontFamily,
-    fontSize: FontSize.s9,
-    fontWeight: FontWeightManager.bold,
+    fontSize: FontSize.s12,
   );
 
   ///H4 Emphasized
@@ -64,7 +63,7 @@ class BaseStyles {
   ///Body XSmall Regular
   static const TextStyle labelMedium = TextStyle(
     fontFamily: FontConstants.fontFamily,
-    fontSize: FontSize.s12,
+    fontSize: FontSize.s14,
     fontWeight: FontWeightManager.regular,
   );
 

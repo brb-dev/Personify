@@ -9,9 +9,9 @@ class _TabBarSection extends StatelessWidget {
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
           colors: [
-            AppColor.gradient1,
-            AppColor.gradient2,
-            AppColor.gradient3,
+            Theme.of(context).colorScheme.scrim,
+            Theme.of(context).colorScheme.shadow,
+            Theme.of(context).colorScheme.surface,
           ],
         ),
       ),
@@ -27,9 +27,9 @@ class _TabBarSection extends StatelessWidget {
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
               colors: [
-                AppColor.gradient1,
-                AppColor.gradient2,
-                AppColor.gradient3,
+                Theme.of(context).colorScheme.scrim,
+                Theme.of(context).colorScheme.shadow,
+                Theme.of(context).colorScheme.surface,
               ],
             ),
             borderRadius: BorderRadius.circular(

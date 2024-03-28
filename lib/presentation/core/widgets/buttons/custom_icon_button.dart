@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../theme/app_color.dart';
 
@@ -33,12 +34,12 @@ class CustomIconButton extends StatelessWidget {
     return alignment != null
         ? Align(
             alignment: alignment ?? Alignment.center,
-            child: iconButtonWidget,
+            child: _iconButtonWidget(context: context),
           )
-        : iconButtonWidget;
+        : _iconButtonWidget(context: context);
   }
 
-  Widget get iconButtonWidget => SizedBox(
+  Widget _iconButtonWidget({required BuildContext context}) => SizedBox(
         height: height ?? 0,
         width: width ?? 0,
         child: IconButton(
@@ -49,10 +50,10 @@ class CustomIconButton extends StatelessWidget {
             padding: padding ?? EdgeInsets.zero,
             decoration: decoration ??
                 BoxDecoration(
-                  color: AppColor.black.withOpacity(0.5),
+                  color: Theme.of(context).primaryColor.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: AppColor.white.withOpacity(0.1),
+                    color: Theme.of(context).canvasColor.withOpacity(0.1),
                     width: 1,
                   ),
                 ),
@@ -65,8 +66,9 @@ class CustomIconButton extends StatelessWidget {
 
 /// Extension on [CustomIconButton] to facilitate inclusion of all types of border style etc
 extension IconButtonStyleHelper on CustomIconButton {
-  static BoxDecoration get fillLightBlueA => BoxDecoration(
-        color: AppColor.lightBlue,
+  static BoxDecoration fillLightBlueA({required BuildContext context}) =>
+      BoxDecoration(
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(23),
       );
 }

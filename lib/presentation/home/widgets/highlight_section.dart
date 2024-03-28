@@ -13,6 +13,7 @@ class _HighlightSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 21),
         Padding(
@@ -22,8 +23,8 @@ class _HighlightSection extends StatelessWidget {
           ),
           child: Text(
             title,
-            // style: CustomTextStyles.bodyMediumGray600,
-            textAlign: TextAlign.start,
+            style: Theme.of(context).textTheme.headlineMedium,
+            textAlign: TextAlign.left,
           ),
         ),
         const SizedBox(height: 9),
@@ -45,8 +46,8 @@ class _HighlightSection extends StatelessWidget {
               begin: const Alignment(0.07, 0.08),
               end: const Alignment(1, 0.81),
               colors: [
-                AppColor.skyBlue,
-                AppColor.blue,
+                Theme.of(context).colorScheme.inversePrimary,
+                Theme.of(context).colorScheme.inverseSurface,
               ],
             ),
             corners: const Corners(
@@ -57,7 +58,18 @@ class _HighlightSection extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(16),
-              child: Text(answer),
+              child: ReadMoreText(
+                answer,
+                trimMode: TrimMode.Line,
+                trimLines: 2,
+                colorClickableText:
+                    Theme.of(context).colorScheme.inversePrimary,
+                trimCollapsedText: 'Show more',
+                trimExpandedText: '...Show less',
+                lessStyle: Theme.of(context).textTheme.labelMedium,
+                moreStyle: Theme.of(context).textTheme.labelMedium,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
             ),
           ),
         ),

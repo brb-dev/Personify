@@ -1,5 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:readmore/readmore.dart';
 
 import '../core/app_asset.dart';
 import '../core/theme/app_color.dart';
@@ -32,15 +35,15 @@ class IndRecordScreen extends StatelessWidget {
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
               colors: <Color>[
-                AppColor.gradient1,
-                AppColor.gradient2,
-                AppColor.gradient3,
+                Theme.of(context).colorScheme.scrim,
+                Theme.of(context).colorScheme.shadow,
+                Theme.of(context).colorScheme.surface,
               ],
             ),
           ),
         ),
       ),
-      backgroundColor: AppColor.gradient1,
+      backgroundColor: Theme.of(context).colorScheme.scrim,
       body: DefaultTabController(
         length: 6,
         child: NestedScrollView(
@@ -49,33 +52,37 @@ class IndRecordScreen extends StatelessWidget {
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return [
               SliverToBoxAdapter(
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.3 + 60,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [
-                        AppColor.gradient1,
-                        AppColor.gradient2,
-                        AppColor.gradient3,
-                      ],
-                    ),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                    ),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 20,
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return Container(
+                      height: MediaQuery.of(context).size.height * 0.3 + 60,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                          colors: [
+                            Theme.of(context).colorScheme.scrim,
+                            Theme.of(context).colorScheme.shadow,
+                            Theme.of(context).colorScheme.surface,
+                          ],
                         ),
-                        Expanded(child: _TranscriptSection()),
-                      ],
-                    ),
-                  ),
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.only(
+                          left: 16,
+                          right: 16,
+                        ),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Expanded(child: _TranscriptSection()),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ];
@@ -88,9 +95,9 @@ class IndRecordScreen extends StatelessWidget {
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                     colors: [
-                      AppColor.gradient1,
-                      AppColor.gradient2,
-                      AppColor.gradient3,
+                      Theme.of(context).colorScheme.scrim,
+                      Theme.of(context).colorScheme.shadow,
+                      Theme.of(context).colorScheme.surface,
                     ],
                   ),
                 ),
@@ -98,25 +105,41 @@ class IndRecordScreen extends StatelessWidget {
               ),
               _TabBarSection(),
               Container(
-                color: AppColor.gradient1,
+                color: Theme.of(context).primaryColor.withOpacity(0.5),
                 height: 16,
               ),
-              const Text('Small Quote of Speaker1'),
-              const Expanded(
-                child: TabBarView(
-                  children: [
-                    _IndTabSection(),
-                    _IndTabSection(),
-                    _IndTabSection(),
-                    _IndTabSection(),
-                    _IndTabSection(),
-                    _IndTabSection(),
-                  ],
+              Expanded(
+                child: Container(
+                  color: Theme.of(context).primaryColor.withOpacity(0.5),
+                  child: const TabBarView(
+                    children: [
+                      _IndTabSection(),
+                      _IndTabSection(),
+                      _IndTabSection(),
+                      _IndTabSection(),
+                      _IndTabSection(),
+                      _IndTabSection(),
+                    ],
+                  ),
                 ),
               ),
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            color: Theme.of(context).colorScheme.scrim,
+            height: 40,
+          ),
+          CustomImageView(
+            imagePath: AppAssets.mikeIcon,
+            width: 80,
+            height: 80,
+          ),
+        ],
       ),
     );
   }

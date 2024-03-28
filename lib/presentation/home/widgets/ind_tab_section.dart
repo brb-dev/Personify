@@ -14,6 +14,7 @@ class _IndTabSection extends StatelessWidget {
         ),
         child: Column(
           children: [
+            const Text('Small Quote of Speaker1'),
             const _PersonalityScore(),
             const SizedBox(height: 6),
             for (var i = 0; i < _emotionData.length; i = i + 2)
