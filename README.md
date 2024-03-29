@@ -35,3 +35,7 @@ The app uses 4 flavors, namely:
 - ```fvm flutter build apk --flavor uat -t lib/main_uat.dart```
 - ```fvm flutter build apk --flavor prod -t lib/main_prod.dart```
 
+### Android SDK Version
+Make the below changes to your /eZRx Mobile/android/local.properties
+- flutter.minSdkVersion=21
+

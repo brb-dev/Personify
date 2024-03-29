@@ -64,9 +64,9 @@ class _TabBarSection extends StatelessWidget {
             indicatorSize: TabBarIndicatorSize.tab,
             tabs: _speakerNames
                 .map(
-                  (e) => const Tab(
+                  (e) => Tab(
                     child: Text(
-                      "John",
+                      e,
                     ),
                   ),
                 )

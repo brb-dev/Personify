@@ -15,40 +15,7 @@ class _TranscriptSection extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
-          OutlineGradientButton(
-            padding: const EdgeInsets.only(
-              left: 1,
-              top: 1,
-              right: 1,
-              bottom: 1,
-            ),
-            strokeWidth: 1,
-            gradient: _gradient(context: context),
-            corners: _corners,
-            child: Container(
-              height: 44,
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.circular(
-                  22,
-                ),
-                boxShadow: _buttonShadow(context: context),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  CustomImageView(
-                    imagePath: AppAssets.playImage,
-                  ),
-                  CustomImageView(
-                    imagePath: AppAssets.soundWaveImage,
-                    fit: BoxFit.fitWidth,
-                  ),
-                ],
-              ),
-            ),
-          ),
+          _PlayAudioView(),
           const SizedBox(
             height: 10,
           ),
@@ -137,19 +104,6 @@ class _TranscriptSection extends StatelessWidget {
     );
   }
 
-  Corners get _corners => const Corners(
-        topLeft: Radius.circular(22),
-        topRight: Radius.circular(22),
-        bottomLeft: Radius.circular(22),
-        bottomRight: Radius.circular(22),
-      );
-
-  LinearGradient _gradient({required BuildContext context}) => LinearGradient(
-        begin: const Alignment(0.07, 0.08),
-        end: const Alignment(1, 0.81),
-        colors: Constants.linearGradientColorSet4(context: context),
-      );
-
   List<BoxShadow> _boxShadow({required BuildContext context}) => [
         BoxShadow(
           color: Theme.of(context).colorScheme.inversePrimary,
@@ -163,18 +117,6 @@ class _TranscriptSection extends StatelessWidget {
           offset: const Offset(
             0.0,
             -3.0,
-          ),
-        ),
-      ];
-
-  List<BoxShadow> _buttonShadow({required BuildContext context}) => [
-        BoxShadow(
-          color: Theme.of(context).colorScheme.inversePrimary,
-          spreadRadius: 3,
-          blurRadius: 3,
-          offset: const Offset(
-            0,
-            0,
           ),
         ),
       ];

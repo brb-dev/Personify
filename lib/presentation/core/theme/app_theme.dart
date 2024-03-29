@@ -42,6 +42,7 @@ ColorScheme _colorScheme() {
     outline: AppColor.linearGradient2,
     secondary: AppColor.lightBlue,
     onInverseSurface: AppColor.transparentColor,
+    background: AppColor.lightGrey,
   );
 }
 

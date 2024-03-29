@@ -22,4 +22,11 @@ abstract class Constants {
         Theme.of(context).primaryColor,
         Theme.of(context).colorScheme.inversePrimary,
       ];
+
+  static LinearGradient gradient({required BuildContext context}) =>
+      LinearGradient(
+        begin: const Alignment(0.07, 0.08),
+        end: const Alignment(1, 0.81),
+        colors: Constants.linearGradientColorSet4(context: context),
+      );
 }
