@@ -14,9 +14,15 @@ class _IndTabSection extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const Text('Small Quote of Speaker1'),
+            Text(
+              'Small Quote of Speaker1',
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: Theme.of(context).canvasColor,
+                  ),
+            ),
+            const SizedBox(height: 10),
             const _PersonalityScore(),
-            const SizedBox(height: 6),
+            const SizedBox(height: 10),
             for (var i = 0; i < _emotionData.length; i = i + 2)
               _PersonalityRowItem(
                 data1: _emotionData[i],

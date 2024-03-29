@@ -29,7 +29,7 @@ class _EmotionIndicator extends StatelessWidget {
             padding: EdgeInsets.only(left: isLeft ? 6 : 7),
             child: Text(
               title,
-              //style: theme.textTheme.bodySmall,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ),
           const SizedBox(height: 5),
@@ -41,75 +41,86 @@ class _EmotionIndicator extends StatelessWidget {
               children: [
                 Align(
                   alignment: Alignment.center,
-                  child: Card(
-                    clipBehavior: Clip.antiAlias,
-                    elevation: 0,
-                    margin: const EdgeInsets.all(0),
-                    color: Theme.of(context).primaryColor,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(
-                        8,
-                      ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                          blurRadius: 5.0,
+                        ),
+                      ],
                     ),
-                    child: Container(
-                      height: 16,
-                      width: 144,
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
+                    child: Card(
+                      clipBehavior: Clip.antiAlias,
+                      elevation: 0,
+                      margin: const EdgeInsets.all(0),
+                      color: Theme.of(context).primaryColor,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          width: 1,
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                        ),
                         borderRadius: BorderRadius.circular(
                           8,
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Theme.of(context).colorScheme.inversePrimary,
-                            spreadRadius: 2,
-                            blurRadius: 2,
-                            offset: const Offset(
-                              0,
-                              0,
-                            ),
-                          ),
-                        ],
                       ),
-                      child: Stack(
-                        alignment: Alignment.centerLeft,
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              height: 14,
-                              width: length,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                  7,
-                                ),
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Theme.of(context).colorScheme.tertiary,
-                                    Theme.of(context).colorScheme.outline,
-                                  ],
+                      child: Container(
+                        height: 16,
+                        width: 144,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.circular(
+                            8,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color:
+                                  Theme.of(context).colorScheme.inversePrimary,
+                              spreadRadius: 2,
+                              blurRadius: 2,
+                              offset: const Offset(
+                                0,
+                                0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        child: Stack(
+                          alignment: Alignment.centerLeft,
+                          children: [
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Container(
+                                height: 14,
+                                width: length,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(
+                                    7,
+                                  ),
+                                  gradient: LinearGradient(
+                                    colors: Constants.linearGradientColorSet2(
+                                      context: context,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              height: 14,
-                              width: 14,
-                              margin: EdgeInsets.only(left: ratingProgress),
-                              decoration: BoxDecoration(
-                                color: Theme.of(context).canvasColor,
-                                borderRadius: BorderRadius.circular(
-                                  7,
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Container(
+                                height: 14,
+                                width: 14,
+                                margin: EdgeInsets.only(left: ratingProgress),
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).canvasColor,
+                                  borderRadius: BorderRadius.circular(
+                                    7,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -117,10 +128,13 @@ class _EmotionIndicator extends StatelessWidget {
                 Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
-                    padding: EdgeInsets.only(left: ratingProgress / 2),
+                    padding: EdgeInsets.only(
+                      left: ratingProgress / 2,
+                      top: 1,
+                    ),
                     child: Text(
                       rating,
-                      //style: theme.textTheme.bodySmall,
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ),
                 ),

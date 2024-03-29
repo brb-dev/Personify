@@ -52,28 +52,25 @@ class _PersonalityScore extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   "Personality Score",
-                  //style: CustomTextStyles.bodySmall11,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
                 const SizedBox(height: 4),
-                SizedBox(
-                  width: 38,
-                  child: RichText(
-                    text: const TextSpan(
-                      children: [
-                        TextSpan(
-                          text: "8",
-                          // style: theme.textTheme.headlineSmall,
-                        ),
-                        TextSpan(
-                          text: "/10",
-                          // style: CustomTextStyles.bodyMediumffffffff,
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.left,
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "8",
+                        style: Theme.of(context).textTheme.labelLarge,
+                      ),
+                      TextSpan(
+                        text: "/10",
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ],
                   ),
+                  textAlign: TextAlign.left,
                 ),
               ],
             ),

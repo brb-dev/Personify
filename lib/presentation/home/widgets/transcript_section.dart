@@ -5,7 +5,6 @@ class _TranscriptSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //height: MediaQuery.of(context).size.height * 0.3,
       width: double.maxFinite,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -75,6 +74,7 @@ class _TranscriptSection extends StatelessWidget {
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
                 textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
           ),
@@ -85,12 +85,50 @@ class _TranscriptSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
+                style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+                  side: MaterialStateProperty.resolveWith<BorderSide>(
+                    (_) {
+                      return BorderSide(
+                        color: Theme.of(context).canvasColor,
+                      );
+                    },
+                  ),
+                  shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
+                    (_) {
+                      return RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      );
+                    },
+                  ),
+                ),
                 onPressed: () {},
-                child: const Text('Full Text'),
+                child: Text(
+                  'Full Text',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ),
               ElevatedButton(
+                style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+                  side: MaterialStateProperty.resolveWith<BorderSide>(
+                    (_) {
+                      return BorderSide(
+                        color: Theme.of(context).canvasColor,
+                      );
+                    },
+                  ),
+                  shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
+                    (_) {
+                      return RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      );
+                    },
+                  ),
+                ),
                 onPressed: () {},
-                child: const Text('Full Summary'),
+                child: Text(
+                  'Full Summary',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ),
             ],
           )
@@ -109,10 +147,7 @@ class _TranscriptSection extends StatelessWidget {
   LinearGradient _gradient({required BuildContext context}) => LinearGradient(
         begin: const Alignment(0.07, 0.08),
         end: const Alignment(1, 0.81),
-        colors: [
-          Theme.of(context).primaryColor,
-          Theme.of(context).colorScheme.inversePrimary,
-        ],
+        colors: Constants.linearGradientColorSet4(context: context),
       );
 
   List<BoxShadow> _boxShadow({required BuildContext context}) => [

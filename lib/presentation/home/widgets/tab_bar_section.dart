@@ -8,11 +8,7 @@ class _TabBarSection extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
-          colors: [
-            Theme.of(context).colorScheme.scrim,
-            Theme.of(context).colorScheme.shadow,
-            Theme.of(context).colorScheme.surface,
-          ],
+          colors: Constants.linearGradientColorSet1(context: context),
         ),
       ),
       child: Padding(
@@ -26,11 +22,7 @@ class _TabBarSection extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
-              colors: [
-                Theme.of(context).colorScheme.scrim,
-                Theme.of(context).colorScheme.shadow,
-                Theme.of(context).colorScheme.surface,
-              ],
+              colors: Constants.linearGradientColorSet1(context: context),
             ),
             borderRadius: BorderRadius.circular(
               5,
@@ -57,17 +49,9 @@ class _TabBarSection extends StatelessWidget {
           child: TabBar(
             labelPadding: EdgeInsets.zero,
             labelColor: Theme.of(context).canvasColor,
-            labelStyle: const TextStyle(
-              fontSize: 10,
-              fontFamily: 'Inter',
-              fontWeight: FontWeight.w400,
-            ),
+            labelStyle: Theme.of(context).textTheme.bodySmall,
             unselectedLabelColor: Theme.of(context).canvasColor,
-            unselectedLabelStyle: const TextStyle(
-              fontSize: 10,
-              fontFamily: 'Inter',
-              fontWeight: FontWeight.w400,
-            ),
+            unselectedLabelStyle: Theme.of(context).textTheme.bodySmall,
             indicatorPadding: const EdgeInsets.all(
               5.5,
             ),
@@ -78,41 +62,21 @@ class _TabBarSection extends StatelessWidget {
               ),
             ),
             indicatorSize: TabBarIndicatorSize.tab,
-            tabs: const [
-              Tab(
-                child: Text(
-                  "John",
-                ),
-              ),
-              Tab(
-                child: Text(
-                  "Steve",
-                ),
-              ),
-              Tab(
-                child: Text(
-                  "Mike",
-                ),
-              ),
-              Tab(
-                child: Text(
-                  "Gori",
-                ),
-              ),
-              Tab(
-                child: Text(
-                  "Anna",
-                ),
-              ),
-              Tab(
-                child: Text(
-                  "...",
-                ),
-              ),
-            ],
+            tabs: _speakerNames
+                .map(
+                  (e) => const Tab(
+                    child: Text(
+                      "John",
+                    ),
+                  ),
+                )
+                .toList(),
           ),
         ),
       ),
     );
   }
 }
+
+List<String> get _speakerNames =>
+    ['John', 'Steve', 'Mike', 'Gori', 'Anna', '...'];

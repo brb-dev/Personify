@@ -45,16 +45,15 @@ class _HighlightSection extends StatelessWidget {
             gradient: LinearGradient(
               begin: const Alignment(0.07, 0.08),
               end: const Alignment(1, 0.81),
-              colors: [
-                Theme.of(context).colorScheme.inversePrimary,
-                Theme.of(context).colorScheme.inverseSurface,
-              ],
+              colors: Constants.linearGradientColorSet3(
+                context: context,
+              ),
             ),
             corners: const Corners(
-              topLeft: Radius.circular(18),
-              topRight: Radius.circular(18),
-              bottomLeft: Radius.circular(18),
-              bottomRight: Radius.circular(18),
+              topLeft: Radius.circular(22),
+              topRight: Radius.circular(22),
+              bottomLeft: Radius.circular(22),
+              bottomRight: Radius.circular(22),
             ),
             child: Padding(
               padding: const EdgeInsets.all(16),

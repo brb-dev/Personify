@@ -59,10 +59,12 @@ class OutlineGradientButton extends StatelessWidget {
       borderRadius: _borderRadius,
       child: InkWell(
         borderRadius: _borderRadius,
-        highlightColor:
-            inkWell ? Theme.of(context).highlightColor : Colors.transparent,
-        splashColor:
-            inkWell ? Theme.of(context).splashColor : Colors.transparent,
+        highlightColor: inkWell
+            ? Theme.of(context).highlightColor
+            : Theme.of(context).colorScheme.onInverseSurface,
+        splashColor: inkWell
+            ? Theme.of(context).splashColor
+            : Theme.of(context).colorScheme.onInverseSurface,
         onTap: onTap,
         onLongPress: onLongPress,
         onDoubleTap: onDoubleTap,
