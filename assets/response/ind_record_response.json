@@ -1,0 +1,106 @@
+{
+    "fullText": "Hello",
+    "fullSummary": "How are you?",
+    "speakers": [
+        {
+            "displayName": "John",
+            "personalityScore": "8",
+            "emotionMap": {
+                "Trust":"",
+                "Sentiment":"",
+                "Empathy":"",
+                "Charisma":"",
+                "Duty":"",
+                "Ethics":"",
+                "Influence":"",
+                "Rude":""
+            },
+            "highlightMap": {
+                "Quotes reflecting attitude towards me":"",
+                "Conclusion":"",
+                "Favorite topics and interests":"",
+                "Least favorite topics":""
+            }
+        },
+        {
+            "displayName": "John",
+            "personalityScore": "8",
+            "emotionMap": {
+                "Trust":"",
+                "Sentiment":"",
+                "Empathy":"",
+                "Charisma":"",
+                "Duty":"",
+                "Ethics":"",
+                "Influence":"",
+                "Rude":""
+            },
+            "highlightMap": {
+                "Quotes reflecting attitude towards me":"",
+                "Conclusion":"",
+                "Favorite topics and interests":"",
+                "Least favorite topics":""
+            }
+        },
+        {
+            "displayName": "John",
+            "personalityScore": "8",
+            "emotionMap": {
+                "Trust":"",
+                "Sentiment":"",
+                "Empathy":"",
+                "Charisma":"",
+                "Duty":"",
+                "Ethics":"",
+                "Influence":"",
+                "Rude":""
+            },
+            "highlightMap": {
+                "Quotes reflecting attitude towards me":"",
+                "Conclusion":"",
+                "Favorite topics and interests":"",
+                "Least favorite topics":""
+            }
+        },
+        {
+            "displayName": "John",
+            "personalityScore": "8",
+            "emotionMap": {
+                "Trust":"",
+                "Sentiment":"",
+                "Empathy":"",
+                "Charisma":"",
+                "Duty":"",
+                "Ethics":"",
+                "Influence":"",
+                "Rude":""
+            },
+            "highlightMap": {
+                "Quotes reflecting attitude towards me":"",
+                "Conclusion":"",
+                "Favorite topics and interests":"",
+                "Least favorite topics":""
+            }
+        },
+        {
+            "displayName": "John",
+            "personalityScore": "8",
+            "emotionMap": {
+                "Trust":"",
+                "Sentiment":"",
+                "Empathy":"",
+                "Charisma":"",
+                "Duty":"",
+                "Ethics":"",
+                "Influence":"",
+                "Rude":""
+            },
+            "highlightMap": {
+                "Quotes reflecting attitude towards me":"",
+                "Conclusion":"",
+                "Favorite topics and interests":"",
+                "Least favorite topics":""
+            }
+        }
+    ]
+}

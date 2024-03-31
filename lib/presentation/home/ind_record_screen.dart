@@ -1,7 +1,10 @@
+import 'dart:ui' as ui;
+
 import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:personify/presentation/core/theme/app_color.dart';
 import 'package:readmore/readmore.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -20,6 +23,7 @@ part 'widgets/personality_score.dart';
 part 'widgets/emotion_indicator.dart';
 part 'widgets/highlight_section.dart';
 part 'widgets/play_audio.dart';
+part 'widgets/personality_score_result.dart';
 
 @RoutePage()
 class IndRecordScreen extends StatelessWidget {
@@ -51,37 +55,8 @@ class IndRecordScreen extends StatelessWidget {
           floatHeaderSlivers: true,
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return [
-              SliverToBoxAdapter(
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    return Container(
-                      height: MediaQuery.of(context).size.height * 0.3 + 60,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: Constants.linearGradientColorSet1(
-                            context: context,
-                          ),
-                        ),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.only(
-                          left: 16,
-                          right: 16,
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 20,
-                            ),
-                            Expanded(child: _TranscriptSection()),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
+              const SliverToBoxAdapter(
+                child: _TranscriptSection(),
               ),
             ];
           },
@@ -121,13 +96,24 @@ class IndRecordScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: GestureDetector(
-        onTap: () {},
-        child: CustomImageView(
-          imagePath: AppAssets.mikeIcon,
-          height: 80,
-          width: 80,
-        ),
+      floatingActionButton: BlocBuilder<player.PlayerBloc, player.PlayerState>(
+        buildWhen: (previous, current) =>
+            previous.isRecording != current.isRecording,
+        builder: (context, state) {
+          return GestureDetector(
+            onTap: () => context.read<player.PlayerBloc>().add(
+                  player.PlayerEvent.changeRecordingStatus(
+                    status: !state.isRecording,
+                  ),
+                ),
+            child: CustomImageView(
+              imagePath:
+                  state.isRecording ? AppAssets.stopIcon : AppAssets.mikeIcon,
+              height: state.isRecording ? 38 : 80,
+              width: state.isRecording ? 38 : 80,
+            ),
+          );
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Container(

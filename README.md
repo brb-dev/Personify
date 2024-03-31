@@ -36,6 +36,6 @@ The app uses 4 flavors, namely:
 - ```fvm flutter build apk --flavor prod -t lib/main_prod.dart```
 
 ### Android SDK Version
-Make the below changes to your /eZRx Mobile/android/local.properties
+Make the below changes to your /personify/android/local.properties
 - flutter.minSdkVersion=21
 

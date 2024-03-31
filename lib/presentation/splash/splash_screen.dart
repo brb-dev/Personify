@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:personify/application/core/player/player_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../core/app_asset.dart';
@@ -58,15 +59,19 @@ class _SplashScreenState extends State<SplashScreen>
               initial: (_) => _showLoadingDialog(context),
               loading: (_) => _showLoadingDialog(context),
               authenticated: (authState) {
-                //context.router.popForced();
+                context.router.popForced();
+
                 context.router.replaceAll(
                   [
                     const SplashRoute(),
                     const IndRecordRoute(),
                   ],
                 );
+                context.read<PlayerBloc>().add(const PlayerEvent.init());
               },
               unauthenticated: (unauthState) {
+                context.router.popForced();
+
                 context.router.replaceAll(
                   [
                     const SplashRoute(),

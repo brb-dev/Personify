@@ -544,28 +544,29 @@ abstract class _Logout implements AuthEvent {
 /// @nodoc
 mixin _$AuthState {
   Login? get user => throw _privateConstructorUsedError;
+  bool? get isLoading => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Login? user) initial,
-    required TResult Function(Login? user) loading,
-    required TResult Function(Login user) authenticated,
-    required TResult Function(Login? user) unauthenticated,
+    required TResult Function(Login? user, bool? isLoading) initial,
+    required TResult Function(Login? user, bool isLoading) loading,
+    required TResult Function(Login user, bool? isLoading) authenticated,
+    required TResult Function(Login? user, bool? isLoading) unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Login? user)? initial,
-    TResult? Function(Login? user)? loading,
-    TResult? Function(Login user)? authenticated,
-    TResult? Function(Login? user)? unauthenticated,
+    TResult? Function(Login? user, bool? isLoading)? initial,
+    TResult? Function(Login? user, bool isLoading)? loading,
+    TResult? Function(Login user, bool? isLoading)? authenticated,
+    TResult? Function(Login? user, bool? isLoading)? unauthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Login? user)? initial,
-    TResult Function(Login? user)? loading,
-    TResult Function(Login user)? authenticated,
-    TResult Function(Login? user)? unauthenticated,
+    TResult Function(Login? user, bool? isLoading)? initial,
+    TResult Function(Login? user, bool isLoading)? loading,
+    TResult Function(Login user, bool? isLoading)? authenticated,
+    TResult Function(Login? user, bool? isLoading)? unauthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -605,7 +606,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({Login user});
+  $Res call({Login user, bool isLoading});
 
   $LoginCopyWith<$Res>? get user;
 }
@@ -624,12 +625,17 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @override
   $Res call({
     Object? user = null,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       user: null == user
           ? _value.user!
           : user // ignore: cast_nullable_to_non_nullable
               as Login,
+      isLoading: null == isLoading
+          ? _value.isLoading!
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -654,7 +660,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Login? user});
+  $Res call({Login? user, bool? isLoading});
 
   @override
   $LoginCopyWith<$Res>? get user;
@@ -672,12 +678,17 @@ class __$$InitialImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_$InitialImpl(
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as Login?,
+      isLoading: freezed == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -685,14 +696,16 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl implements _Initial {
-  const _$InitialImpl({this.user});
+  const _$InitialImpl({this.user, this.isLoading});
 
   @override
   final Login? user;
+  @override
+  final bool? isLoading;
 
   @override
   String toString() {
-    return 'AuthState.initial(user: $user)';
+    return 'AuthState.initial(user: $user, isLoading: $isLoading)';
   }
 
   @override
@@ -700,11 +713,13 @@ class _$InitialImpl implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, user, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -715,36 +730,36 @@ class _$InitialImpl implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Login? user) initial,
-    required TResult Function(Login? user) loading,
-    required TResult Function(Login user) authenticated,
-    required TResult Function(Login? user) unauthenticated,
+    required TResult Function(Login? user, bool? isLoading) initial,
+    required TResult Function(Login? user, bool isLoading) loading,
+    required TResult Function(Login user, bool? isLoading) authenticated,
+    required TResult Function(Login? user, bool? isLoading) unauthenticated,
   }) {
-    return initial(user);
+    return initial(user, isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Login? user)? initial,
-    TResult? Function(Login? user)? loading,
-    TResult? Function(Login user)? authenticated,
-    TResult? Function(Login? user)? unauthenticated,
+    TResult? Function(Login? user, bool? isLoading)? initial,
+    TResult? Function(Login? user, bool isLoading)? loading,
+    TResult? Function(Login user, bool? isLoading)? authenticated,
+    TResult? Function(Login? user, bool? isLoading)? unauthenticated,
   }) {
-    return initial?.call(user);
+    return initial?.call(user, isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Login? user)? initial,
-    TResult Function(Login? user)? loading,
-    TResult Function(Login user)? authenticated,
-    TResult Function(Login? user)? unauthenticated,
+    TResult Function(Login? user, bool? isLoading)? initial,
+    TResult Function(Login? user, bool isLoading)? loading,
+    TResult Function(Login user, bool? isLoading)? authenticated,
+    TResult Function(Login? user, bool? isLoading)? unauthenticated,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(user);
+      return initial(user, isLoading);
     }
     return orElse();
   }
@@ -788,10 +803,13 @@ class _$InitialImpl implements _Initial {
 }
 
 abstract class _Initial implements AuthState {
-  const factory _Initial({final Login? user}) = _$InitialImpl;
+  const factory _Initial({final Login? user, final bool? isLoading}) =
+      _$InitialImpl;
 
   @override
   Login? get user;
+  @override
+  bool? get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
@@ -806,7 +824,7 @@ abstract class _$$LoadingImplCopyWith<$Res>
       __$$LoadingImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Login? user});
+  $Res call({Login? user, bool isLoading});
 
   @override
   $LoginCopyWith<$Res>? get user;
@@ -824,12 +842,17 @@ class __$$LoadingImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = freezed,
+    Object? isLoading = null,
   }) {
     return _then(_$LoadingImpl(
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as Login?,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -837,14 +860,16 @@ class __$$LoadingImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadingImpl implements _Loading {
-  const _$LoadingImpl({this.user});
+  const _$LoadingImpl({this.user, required this.isLoading});
 
   @override
   final Login? user;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'AuthState.loading(user: $user)';
+    return 'AuthState.loading(user: $user, isLoading: $isLoading)';
   }
 
   @override
@@ -852,11 +877,13 @@ class _$LoadingImpl implements _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadingImpl &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, user, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -867,36 +894,36 @@ class _$LoadingImpl implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Login? user) initial,
-    required TResult Function(Login? user) loading,
-    required TResult Function(Login user) authenticated,
-    required TResult Function(Login? user) unauthenticated,
+    required TResult Function(Login? user, bool? isLoading) initial,
+    required TResult Function(Login? user, bool isLoading) loading,
+    required TResult Function(Login user, bool? isLoading) authenticated,
+    required TResult Function(Login? user, bool? isLoading) unauthenticated,
   }) {
-    return loading(user);
+    return loading(user, isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Login? user)? initial,
-    TResult? Function(Login? user)? loading,
-    TResult? Function(Login user)? authenticated,
-    TResult? Function(Login? user)? unauthenticated,
+    TResult? Function(Login? user, bool? isLoading)? initial,
+    TResult? Function(Login? user, bool isLoading)? loading,
+    TResult? Function(Login user, bool? isLoading)? authenticated,
+    TResult? Function(Login? user, bool? isLoading)? unauthenticated,
   }) {
-    return loading?.call(user);
+    return loading?.call(user, isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Login? user)? initial,
-    TResult Function(Login? user)? loading,
-    TResult Function(Login user)? authenticated,
-    TResult Function(Login? user)? unauthenticated,
+    TResult Function(Login? user, bool? isLoading)? initial,
+    TResult Function(Login? user, bool isLoading)? loading,
+    TResult Function(Login user, bool? isLoading)? authenticated,
+    TResult Function(Login? user, bool? isLoading)? unauthenticated,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(user);
+      return loading(user, isLoading);
     }
     return orElse();
   }
@@ -940,10 +967,13 @@ class _$LoadingImpl implements _Loading {
 }
 
 abstract class _Loading implements AuthState {
-  const factory _Loading({final Login? user}) = _$LoadingImpl;
+  const factory _Loading({final Login? user, required final bool isLoading}) =
+      _$LoadingImpl;
 
   @override
   Login? get user;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$LoadingImplCopyWith<_$LoadingImpl> get copyWith =>
@@ -958,7 +988,7 @@ abstract class _$$AuthenticatedImplCopyWith<$Res>
       __$$AuthenticatedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Login user});
+  $Res call({Login user, bool? isLoading});
 
   @override
   $LoginCopyWith<$Res> get user;
@@ -976,12 +1006,17 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = null,
+    Object? isLoading = freezed,
   }) {
     return _then(_$AuthenticatedImpl(
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as Login,
+      isLoading: freezed == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 
@@ -997,14 +1032,16 @@ class __$$AuthenticatedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthenticatedImpl implements _Authenticated {
-  const _$AuthenticatedImpl({required this.user});
+  const _$AuthenticatedImpl({required this.user, this.isLoading});
 
   @override
   final Login user;
+  @override
+  final bool? isLoading;
 
   @override
   String toString() {
-    return 'AuthState.authenticated(user: $user)';
+    return 'AuthState.authenticated(user: $user, isLoading: $isLoading)';
   }
 
   @override
@@ -1012,11 +1049,13 @@ class _$AuthenticatedImpl implements _Authenticated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthenticatedImpl &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, user, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -1027,36 +1066,36 @@ class _$AuthenticatedImpl implements _Authenticated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Login? user) initial,
-    required TResult Function(Login? user) loading,
-    required TResult Function(Login user) authenticated,
-    required TResult Function(Login? user) unauthenticated,
+    required TResult Function(Login? user, bool? isLoading) initial,
+    required TResult Function(Login? user, bool isLoading) loading,
+    required TResult Function(Login user, bool? isLoading) authenticated,
+    required TResult Function(Login? user, bool? isLoading) unauthenticated,
   }) {
-    return authenticated(user);
+    return authenticated(user, isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Login? user)? initial,
-    TResult? Function(Login? user)? loading,
-    TResult? Function(Login user)? authenticated,
-    TResult? Function(Login? user)? unauthenticated,
+    TResult? Function(Login? user, bool? isLoading)? initial,
+    TResult? Function(Login? user, bool isLoading)? loading,
+    TResult? Function(Login user, bool? isLoading)? authenticated,
+    TResult? Function(Login? user, bool? isLoading)? unauthenticated,
   }) {
-    return authenticated?.call(user);
+    return authenticated?.call(user, isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Login? user)? initial,
-    TResult Function(Login? user)? loading,
-    TResult Function(Login user)? authenticated,
-    TResult Function(Login? user)? unauthenticated,
+    TResult Function(Login? user, bool? isLoading)? initial,
+    TResult Function(Login? user, bool isLoading)? loading,
+    TResult Function(Login user, bool? isLoading)? authenticated,
+    TResult Function(Login? user, bool? isLoading)? unauthenticated,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated(user);
+      return authenticated(user, isLoading);
     }
     return orElse();
   }
@@ -1100,11 +1139,13 @@ class _$AuthenticatedImpl implements _Authenticated {
 }
 
 abstract class _Authenticated implements AuthState {
-  const factory _Authenticated({required final Login user}) =
-      _$AuthenticatedImpl;
+  const factory _Authenticated(
+      {required final Login user, final bool? isLoading}) = _$AuthenticatedImpl;
 
   @override
   Login get user;
+  @override
+  bool? get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
@@ -1119,7 +1160,7 @@ abstract class _$$UnauthenticatedImplCopyWith<$Res>
       __$$UnauthenticatedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Login? user});
+  $Res call({Login? user, bool? isLoading});
 
   @override
   $LoginCopyWith<$Res>? get user;
@@ -1137,12 +1178,17 @@ class __$$UnauthenticatedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_$UnauthenticatedImpl(
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as Login?,
+      isLoading: freezed == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1150,14 +1196,16 @@ class __$$UnauthenticatedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UnauthenticatedImpl implements _Unauthenticated {
-  const _$UnauthenticatedImpl({this.user});
+  const _$UnauthenticatedImpl({this.user, this.isLoading});
 
   @override
   final Login? user;
+  @override
+  final bool? isLoading;
 
   @override
   String toString() {
-    return 'AuthState.unauthenticated(user: $user)';
+    return 'AuthState.unauthenticated(user: $user, isLoading: $isLoading)';
   }
 
   @override
@@ -1165,11 +1213,13 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UnauthenticatedImpl &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, user, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -1181,36 +1231,36 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Login? user) initial,
-    required TResult Function(Login? user) loading,
-    required TResult Function(Login user) authenticated,
-    required TResult Function(Login? user) unauthenticated,
+    required TResult Function(Login? user, bool? isLoading) initial,
+    required TResult Function(Login? user, bool isLoading) loading,
+    required TResult Function(Login user, bool? isLoading) authenticated,
+    required TResult Function(Login? user, bool? isLoading) unauthenticated,
   }) {
-    return unauthenticated(user);
+    return unauthenticated(user, isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Login? user)? initial,
-    TResult? Function(Login? user)? loading,
-    TResult? Function(Login user)? authenticated,
-    TResult? Function(Login? user)? unauthenticated,
+    TResult? Function(Login? user, bool? isLoading)? initial,
+    TResult? Function(Login? user, bool isLoading)? loading,
+    TResult? Function(Login user, bool? isLoading)? authenticated,
+    TResult? Function(Login? user, bool? isLoading)? unauthenticated,
   }) {
-    return unauthenticated?.call(user);
+    return unauthenticated?.call(user, isLoading);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Login? user)? initial,
-    TResult Function(Login? user)? loading,
-    TResult Function(Login user)? authenticated,
-    TResult Function(Login? user)? unauthenticated,
+    TResult Function(Login? user, bool? isLoading)? initial,
+    TResult Function(Login? user, bool isLoading)? loading,
+    TResult Function(Login user, bool? isLoading)? authenticated,
+    TResult Function(Login? user, bool? isLoading)? unauthenticated,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
-      return unauthenticated(user);
+      return unauthenticated(user, isLoading);
     }
     return orElse();
   }
@@ -1254,10 +1304,13 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
 }
 
 abstract class _Unauthenticated implements AuthState {
-  const factory _Unauthenticated({final Login? user}) = _$UnauthenticatedImpl;
+  const factory _Unauthenticated({final Login? user, final bool? isLoading}) =
+      _$UnauthenticatedImpl;
 
   @override
   Login? get user;
+  @override
+  bool? get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$UnauthenticatedImplCopyWith<_$UnauthenticatedImpl> get copyWith =>

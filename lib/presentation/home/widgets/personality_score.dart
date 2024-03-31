@@ -57,21 +57,7 @@ class _PersonalityScore extends StatelessWidget {
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 const SizedBox(height: 4),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "8",
-                        style: Theme.of(context).textTheme.labelLarge,
-                      ),
-                      TextSpan(
-                        text: "/10",
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ],
-                  ),
-                  textAlign: TextAlign.left,
-                ),
+                _PersonalityScoreResult(),
               ],
             ),
           ),

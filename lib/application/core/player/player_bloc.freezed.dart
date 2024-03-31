@@ -20,21 +20,24 @@ mixin _$PlayerEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(bool isPlaying) updatePlayingStatus,
-    required TResult Function() evaluateFileByteData,
+    required TResult Function(String path) evaluateFileByteData,
+    required TResult Function(bool status) changeRecordingStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(bool isPlaying)? updatePlayingStatus,
-    TResult? Function()? evaluateFileByteData,
+    TResult? Function(String path)? evaluateFileByteData,
+    TResult? Function(bool status)? changeRecordingStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(bool isPlaying)? updatePlayingStatus,
-    TResult Function()? evaluateFileByteData,
+    TResult Function(String path)? evaluateFileByteData,
+    TResult Function(bool status)? changeRecordingStatus,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,8 @@ mixin _$PlayerEvent {
     required TResult Function(_Init value) init,
     required TResult Function(_UpdatePlayingStatus value) updatePlayingStatus,
     required TResult Function(_EvaluateFileByteData value) evaluateFileByteData,
+    required TResult Function(_ChangeRecordingStatus value)
+        changeRecordingStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$PlayerEvent {
     TResult? Function(_Init value)? init,
     TResult? Function(_UpdatePlayingStatus value)? updatePlayingStatus,
     TResult? Function(_EvaluateFileByteData value)? evaluateFileByteData,
+    TResult? Function(_ChangeRecordingStatus value)? changeRecordingStatus,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,7 @@ mixin _$PlayerEvent {
     TResult Function(_Init value)? init,
     TResult Function(_UpdatePlayingStatus value)? updatePlayingStatus,
     TResult Function(_EvaluateFileByteData value)? evaluateFileByteData,
+    TResult Function(_ChangeRecordingStatus value)? changeRecordingStatus,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +126,8 @@ class _$InitImpl implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(bool isPlaying) updatePlayingStatus,
-    required TResult Function() evaluateFileByteData,
+    required TResult Function(String path) evaluateFileByteData,
+    required TResult Function(bool status) changeRecordingStatus,
   }) {
     return init();
   }
@@ -129,7 +137,8 @@ class _$InitImpl implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(bool isPlaying)? updatePlayingStatus,
-    TResult? Function()? evaluateFileByteData,
+    TResult? Function(String path)? evaluateFileByteData,
+    TResult? Function(bool status)? changeRecordingStatus,
   }) {
     return init?.call();
   }
@@ -139,7 +148,8 @@ class _$InitImpl implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(bool isPlaying)? updatePlayingStatus,
-    TResult Function()? evaluateFileByteData,
+    TResult Function(String path)? evaluateFileByteData,
+    TResult Function(bool status)? changeRecordingStatus,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -154,6 +164,8 @@ class _$InitImpl implements _Init {
     required TResult Function(_Init value) init,
     required TResult Function(_UpdatePlayingStatus value) updatePlayingStatus,
     required TResult Function(_EvaluateFileByteData value) evaluateFileByteData,
+    required TResult Function(_ChangeRecordingStatus value)
+        changeRecordingStatus,
   }) {
     return init(this);
   }
@@ -164,6 +176,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_Init value)? init,
     TResult? Function(_UpdatePlayingStatus value)? updatePlayingStatus,
     TResult? Function(_EvaluateFileByteData value)? evaluateFileByteData,
+    TResult? Function(_ChangeRecordingStatus value)? changeRecordingStatus,
   }) {
     return init?.call(this);
   }
@@ -174,6 +187,7 @@ class _$InitImpl implements _Init {
     TResult Function(_Init value)? init,
     TResult Function(_UpdatePlayingStatus value)? updatePlayingStatus,
     TResult Function(_EvaluateFileByteData value)? evaluateFileByteData,
+    TResult Function(_ChangeRecordingStatus value)? changeRecordingStatus,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -255,7 +269,8 @@ class _$UpdatePlayingStatusImpl implements _UpdatePlayingStatus {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(bool isPlaying) updatePlayingStatus,
-    required TResult Function() evaluateFileByteData,
+    required TResult Function(String path) evaluateFileByteData,
+    required TResult Function(bool status) changeRecordingStatus,
   }) {
     return updatePlayingStatus(isPlaying);
   }
@@ -265,7 +280,8 @@ class _$UpdatePlayingStatusImpl implements _UpdatePlayingStatus {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(bool isPlaying)? updatePlayingStatus,
-    TResult? Function()? evaluateFileByteData,
+    TResult? Function(String path)? evaluateFileByteData,
+    TResult? Function(bool status)? changeRecordingStatus,
   }) {
     return updatePlayingStatus?.call(isPlaying);
   }
@@ -275,7 +291,8 @@ class _$UpdatePlayingStatusImpl implements _UpdatePlayingStatus {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(bool isPlaying)? updatePlayingStatus,
-    TResult Function()? evaluateFileByteData,
+    TResult Function(String path)? evaluateFileByteData,
+    TResult Function(bool status)? changeRecordingStatus,
     required TResult orElse(),
   }) {
     if (updatePlayingStatus != null) {
@@ -290,6 +307,8 @@ class _$UpdatePlayingStatusImpl implements _UpdatePlayingStatus {
     required TResult Function(_Init value) init,
     required TResult Function(_UpdatePlayingStatus value) updatePlayingStatus,
     required TResult Function(_EvaluateFileByteData value) evaluateFileByteData,
+    required TResult Function(_ChangeRecordingStatus value)
+        changeRecordingStatus,
   }) {
     return updatePlayingStatus(this);
   }
@@ -300,6 +319,7 @@ class _$UpdatePlayingStatusImpl implements _UpdatePlayingStatus {
     TResult? Function(_Init value)? init,
     TResult? Function(_UpdatePlayingStatus value)? updatePlayingStatus,
     TResult? Function(_EvaluateFileByteData value)? evaluateFileByteData,
+    TResult? Function(_ChangeRecordingStatus value)? changeRecordingStatus,
   }) {
     return updatePlayingStatus?.call(this);
   }
@@ -310,6 +330,7 @@ class _$UpdatePlayingStatusImpl implements _UpdatePlayingStatus {
     TResult Function(_Init value)? init,
     TResult Function(_UpdatePlayingStatus value)? updatePlayingStatus,
     TResult Function(_EvaluateFileByteData value)? evaluateFileByteData,
+    TResult Function(_ChangeRecordingStatus value)? changeRecordingStatus,
     required TResult orElse(),
   }) {
     if (updatePlayingStatus != null) {
@@ -334,6 +355,8 @@ abstract class _$$EvaluateFileByteDataImplCopyWith<$Res> {
   factory _$$EvaluateFileByteDataImplCopyWith(_$EvaluateFileByteDataImpl value,
           $Res Function(_$EvaluateFileByteDataImpl) then) =
       __$$EvaluateFileByteDataImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String path});
 }
 
 /// @nodoc
@@ -343,36 +366,62 @@ class __$$EvaluateFileByteDataImplCopyWithImpl<$Res>
   __$$EvaluateFileByteDataImplCopyWithImpl(_$EvaluateFileByteDataImpl _value,
       $Res Function(_$EvaluateFileByteDataImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? path = null,
+  }) {
+    return _then(_$EvaluateFileByteDataImpl(
+      path: null == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$EvaluateFileByteDataImpl implements _EvaluateFileByteData {
-  const _$EvaluateFileByteDataImpl();
+  const _$EvaluateFileByteDataImpl({required this.path});
+
+  @override
+  final String path;
 
   @override
   String toString() {
-    return 'PlayerEvent.evaluateFileByteData()';
+    return 'PlayerEvent.evaluateFileByteData(path: $path)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EvaluateFileByteDataImpl);
+            other is _$EvaluateFileByteDataImpl &&
+            (identical(other.path, path) || other.path == path));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, path);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EvaluateFileByteDataImplCopyWith<_$EvaluateFileByteDataImpl>
+      get copyWith =>
+          __$$EvaluateFileByteDataImplCopyWithImpl<_$EvaluateFileByteDataImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(bool isPlaying) updatePlayingStatus,
-    required TResult Function() evaluateFileByteData,
+    required TResult Function(String path) evaluateFileByteData,
+    required TResult Function(bool status) changeRecordingStatus,
   }) {
-    return evaluateFileByteData();
+    return evaluateFileByteData(path);
   }
 
   @override
@@ -380,9 +429,10 @@ class _$EvaluateFileByteDataImpl implements _EvaluateFileByteData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(bool isPlaying)? updatePlayingStatus,
-    TResult? Function()? evaluateFileByteData,
+    TResult? Function(String path)? evaluateFileByteData,
+    TResult? Function(bool status)? changeRecordingStatus,
   }) {
-    return evaluateFileByteData?.call();
+    return evaluateFileByteData?.call(path);
   }
 
   @override
@@ -390,11 +440,12 @@ class _$EvaluateFileByteDataImpl implements _EvaluateFileByteData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(bool isPlaying)? updatePlayingStatus,
-    TResult Function()? evaluateFileByteData,
+    TResult Function(String path)? evaluateFileByteData,
+    TResult Function(bool status)? changeRecordingStatus,
     required TResult orElse(),
   }) {
     if (evaluateFileByteData != null) {
-      return evaluateFileByteData();
+      return evaluateFileByteData(path);
     }
     return orElse();
   }
@@ -405,6 +456,8 @@ class _$EvaluateFileByteDataImpl implements _EvaluateFileByteData {
     required TResult Function(_Init value) init,
     required TResult Function(_UpdatePlayingStatus value) updatePlayingStatus,
     required TResult Function(_EvaluateFileByteData value) evaluateFileByteData,
+    required TResult Function(_ChangeRecordingStatus value)
+        changeRecordingStatus,
   }) {
     return evaluateFileByteData(this);
   }
@@ -415,6 +468,7 @@ class _$EvaluateFileByteDataImpl implements _EvaluateFileByteData {
     TResult? Function(_Init value)? init,
     TResult? Function(_UpdatePlayingStatus value)? updatePlayingStatus,
     TResult? Function(_EvaluateFileByteData value)? evaluateFileByteData,
+    TResult? Function(_ChangeRecordingStatus value)? changeRecordingStatus,
   }) {
     return evaluateFileByteData?.call(this);
   }
@@ -425,6 +479,7 @@ class _$EvaluateFileByteDataImpl implements _EvaluateFileByteData {
     TResult Function(_Init value)? init,
     TResult Function(_UpdatePlayingStatus value)? updatePlayingStatus,
     TResult Function(_EvaluateFileByteData value)? evaluateFileByteData,
+    TResult Function(_ChangeRecordingStatus value)? changeRecordingStatus,
     required TResult orElse(),
   }) {
     if (evaluateFileByteData != null) {
@@ -435,7 +490,162 @@ class _$EvaluateFileByteDataImpl implements _EvaluateFileByteData {
 }
 
 abstract class _EvaluateFileByteData implements PlayerEvent {
-  const factory _EvaluateFileByteData() = _$EvaluateFileByteDataImpl;
+  const factory _EvaluateFileByteData({required final String path}) =
+      _$EvaluateFileByteDataImpl;
+
+  String get path;
+  @JsonKey(ignore: true)
+  _$$EvaluateFileByteDataImplCopyWith<_$EvaluateFileByteDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeRecordingStatusImplCopyWith<$Res> {
+  factory _$$ChangeRecordingStatusImplCopyWith(
+          _$ChangeRecordingStatusImpl value,
+          $Res Function(_$ChangeRecordingStatusImpl) then) =
+      __$$ChangeRecordingStatusImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool status});
+}
+
+/// @nodoc
+class __$$ChangeRecordingStatusImplCopyWithImpl<$Res>
+    extends _$PlayerEventCopyWithImpl<$Res, _$ChangeRecordingStatusImpl>
+    implements _$$ChangeRecordingStatusImplCopyWith<$Res> {
+  __$$ChangeRecordingStatusImplCopyWithImpl(_$ChangeRecordingStatusImpl _value,
+      $Res Function(_$ChangeRecordingStatusImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+  }) {
+    return _then(_$ChangeRecordingStatusImpl(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeRecordingStatusImpl implements _ChangeRecordingStatus {
+  const _$ChangeRecordingStatusImpl({required this.status});
+
+  @override
+  final bool status;
+
+  @override
+  String toString() {
+    return 'PlayerEvent.changeRecordingStatus(status: $status)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeRecordingStatusImpl &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, status);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeRecordingStatusImplCopyWith<_$ChangeRecordingStatusImpl>
+      get copyWith => __$$ChangeRecordingStatusImplCopyWithImpl<
+          _$ChangeRecordingStatusImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(bool isPlaying) updatePlayingStatus,
+    required TResult Function(String path) evaluateFileByteData,
+    required TResult Function(bool status) changeRecordingStatus,
+  }) {
+    return changeRecordingStatus(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(bool isPlaying)? updatePlayingStatus,
+    TResult? Function(String path)? evaluateFileByteData,
+    TResult? Function(bool status)? changeRecordingStatus,
+  }) {
+    return changeRecordingStatus?.call(status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(bool isPlaying)? updatePlayingStatus,
+    TResult Function(String path)? evaluateFileByteData,
+    TResult Function(bool status)? changeRecordingStatus,
+    required TResult orElse(),
+  }) {
+    if (changeRecordingStatus != null) {
+      return changeRecordingStatus(status);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_UpdatePlayingStatus value) updatePlayingStatus,
+    required TResult Function(_EvaluateFileByteData value) evaluateFileByteData,
+    required TResult Function(_ChangeRecordingStatus value)
+        changeRecordingStatus,
+  }) {
+    return changeRecordingStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_UpdatePlayingStatus value)? updatePlayingStatus,
+    TResult? Function(_EvaluateFileByteData value)? evaluateFileByteData,
+    TResult? Function(_ChangeRecordingStatus value)? changeRecordingStatus,
+  }) {
+    return changeRecordingStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_UpdatePlayingStatus value)? updatePlayingStatus,
+    TResult Function(_EvaluateFileByteData value)? evaluateFileByteData,
+    TResult Function(_ChangeRecordingStatus value)? changeRecordingStatus,
+    required TResult orElse(),
+  }) {
+    if (changeRecordingStatus != null) {
+      return changeRecordingStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeRecordingStatus implements PlayerEvent {
+  const factory _ChangeRecordingStatus({required final bool status}) =
+      _$ChangeRecordingStatusImpl;
+
+  bool get status;
+  @JsonKey(ignore: true)
+  _$$ChangeRecordingStatusImplCopyWith<_$ChangeRecordingStatusImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -443,6 +653,7 @@ mixin _$PlayerState {
   bool get isPlaying => throw _privateConstructorUsedError;
   ByteData get audioData => throw _privateConstructorUsedError;
   String get localFilePath => throw _privateConstructorUsedError;
+  bool get isRecording => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayerStateCopyWith<PlayerState> get copyWith =>
@@ -455,7 +666,11 @@ abstract class $PlayerStateCopyWith<$Res> {
           PlayerState value, $Res Function(PlayerState) then) =
       _$PlayerStateCopyWithImpl<$Res, PlayerState>;
   @useResult
-  $Res call({bool isPlaying, ByteData audioData, String localFilePath});
+  $Res call(
+      {bool isPlaying,
+      ByteData audioData,
+      String localFilePath,
+      bool isRecording});
 }
 
 /// @nodoc
@@ -474,6 +689,7 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
     Object? isPlaying = null,
     Object? audioData = null,
     Object? localFilePath = null,
+    Object? isRecording = null,
   }) {
     return _then(_value.copyWith(
       isPlaying: null == isPlaying
@@ -488,6 +704,10 @@ class _$PlayerStateCopyWithImpl<$Res, $Val extends PlayerState>
           ? _value.localFilePath
           : localFilePath // ignore: cast_nullable_to_non_nullable
               as String,
+      isRecording: null == isRecording
+          ? _value.isRecording
+          : isRecording // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -500,7 +720,11 @@ abstract class _$$PlayerStateImplCopyWith<$Res>
       __$$PlayerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isPlaying, ByteData audioData, String localFilePath});
+  $Res call(
+      {bool isPlaying,
+      ByteData audioData,
+      String localFilePath,
+      bool isRecording});
 }
 
 /// @nodoc
@@ -517,6 +741,7 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
     Object? isPlaying = null,
     Object? audioData = null,
     Object? localFilePath = null,
+    Object? isRecording = null,
   }) {
     return _then(_$PlayerStateImpl(
       isPlaying: null == isPlaying
@@ -531,6 +756,10 @@ class __$$PlayerStateImplCopyWithImpl<$Res>
           ? _value.localFilePath
           : localFilePath // ignore: cast_nullable_to_non_nullable
               as String,
+      isRecording: null == isRecording
+          ? _value.isRecording
+          : isRecording // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -541,7 +770,8 @@ class _$PlayerStateImpl extends _PlayerState {
   const _$PlayerStateImpl(
       {required this.isPlaying,
       required this.audioData,
-      required this.localFilePath})
+      required this.localFilePath,
+      required this.isRecording})
       : super._();
 
   @override
@@ -550,10 +780,12 @@ class _$PlayerStateImpl extends _PlayerState {
   final ByteData audioData;
   @override
   final String localFilePath;
+  @override
+  final bool isRecording;
 
   @override
   String toString() {
-    return 'PlayerState(isPlaying: $isPlaying, audioData: $audioData, localFilePath: $localFilePath)';
+    return 'PlayerState(isPlaying: $isPlaying, audioData: $audioData, localFilePath: $localFilePath, isRecording: $isRecording)';
   }
 
   @override
@@ -566,12 +798,14 @@ class _$PlayerStateImpl extends _PlayerState {
             (identical(other.audioData, audioData) ||
                 other.audioData == audioData) &&
             (identical(other.localFilePath, localFilePath) ||
-                other.localFilePath == localFilePath));
+                other.localFilePath == localFilePath) &&
+            (identical(other.isRecording, isRecording) ||
+                other.isRecording == isRecording));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isPlaying, audioData, localFilePath);
+  int get hashCode => Object.hash(
+      runtimeType, isPlaying, audioData, localFilePath, isRecording);
 
   @JsonKey(ignore: true)
   @override
@@ -584,7 +818,8 @@ abstract class _PlayerState extends PlayerState {
   const factory _PlayerState(
       {required final bool isPlaying,
       required final ByteData audioData,
-      required final String localFilePath}) = _$PlayerStateImpl;
+      required final String localFilePath,
+      required final bool isRecording}) = _$PlayerStateImpl;
   const _PlayerState._() : super._();
 
   @override
@@ -593,6 +828,8 @@ abstract class _PlayerState extends PlayerState {
   ByteData get audioData;
   @override
   String get localFilePath;
+  @override
+  bool get isRecording;
   @override
   @JsonKey(ignore: true)
   _$$PlayerStateImplCopyWith<_$PlayerStateImpl> get copyWith =>

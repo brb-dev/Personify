@@ -9,6 +9,7 @@ abstract class AppAssets {
   static const String playIcon = '${_svgBasePath}play_icon.svg';
   static const String graphIcon = '${_svgBasePath}graph_icon.svg';
   static const String mikeIcon = '${_svgBasePath}mike_icon.svg';
+  static const String stopIcon = '${_imagesBasePath}stop_icon.png';
   static const String playImage = '${_imagesBasePath}play.png';
   static const String soundWaveIcon = '${_svgBasePath}sound_wave_icon.svg';
   static const String soundWaveImage = '${_imagesBasePath}sound_wave.png';

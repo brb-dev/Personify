@@ -26,7 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     await event.map(
       init: (e) async => add(const AuthEvent.authCheck()),
       authCheck: (e) async {
-        emit(const AuthState.loading());
+        emit(const AuthState.loading(isLoading: true));
         final Either<ApiFailure, Stream<User?>> result =
             await authRepository.isLoggedIn();
         await result.fold(
@@ -45,12 +45,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         );
       },
       logout: (e) async {
-        emit(const AuthState.loading());
+        emit(const AuthState.loading(
+          isLoading: true,
+        ));
         authRepository.logout();
         emit(const AuthState.unauthenticated());
       },
       signinWithGoogle: (_) async {
-        emit(const AuthState.loading());
+        emit(const AuthState.loading(
+          isLoading: true,
+        ));
         final response = await authRepository.loginWithGoogle();
         await response.fold(
           (invalid) async => emit(const AuthState.unauthenticated()),

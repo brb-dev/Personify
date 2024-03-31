@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,14 +19,12 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     await event.map(
       init: (_) async => emit(PlayerState.initial()),
       evaluateFileByteData: (value) async {
-        final Directory directory = await getApplicationDocumentsDirectory();
-        final File file = File('${directory.path}/audio.mp3');
-        ByteData byteData = await rootBundle.load('assets/audio/audio.mp3');
-        await file.writeAsBytes(byteData.buffer.asUint8List());
+        final File file = File(value.path);
+        Uint8List bytes = file.readAsBytesSync();
         emit(
           state.copyWith(
-            localFilePath: file.path,
-            audioData: byteData,
+            localFilePath: value.path,
+            audioData: ByteData.view(bytes.buffer),
           ),
         );
       },
@@ -36,6 +33,27 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
           isPlaying: value.isPlaying,
         ),
       ),
+      changeRecordingStatus: (value) async {
+        final Directory directory = await getApplicationDocumentsDirectory();
+
+        if (value.status) {
+          final File file = File('${directory.path}/audio.mp3');
+          emit(
+            state.copyWith(
+              isRecording: value.status,
+              localFilePath: file.path,
+            ),
+          );
+          //add(PlayerEvent.evaluateFileByteData(path: file.path));
+        } else {
+          emit(
+            state.copyWith(
+              isRecording: value.status,
+            ),
+          );
+          // add(PlayerEvent.evaluateFileByteData(path: state.localFilePath));
+        }
+      },
     );
   }
 }
