@@ -12,8 +12,10 @@ import '../../application/auth/auth_bloc.dart';
 import '../../application/core/player/player_bloc.dart' as player;
 import '../../application/ind_record/ind_record_bloc.dart';
 import '../../domain/ind_record/entities/ind_record_entity.dart';
+import '../../domain/ind_record/entities/speaker_details_entity.dart';
 import '../core/app_asset.dart';
-import '../core/constants.dart';
+import '../core/constants/constants.dart';
+import '../core/constants/string_constant.dart';
 import '../core/widgets/buttons/custom_icon_button.dart';
 import '../core/widgets/buttons/outline_gradient_button.dart';
 import '../core/widgets/custom_image_view.dart';
@@ -38,7 +40,7 @@ class IndRecordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chat about China'),
+        title: const Text(StringConstants.appBarTitle),
         centerTitle: true,
         automaticallyImplyLeading: false,
         backgroundColor: Theme.of(context).colorScheme.onInverseSurface,
@@ -77,7 +79,7 @@ class IndRecordScreen extends StatelessWidget {
                     showTopSnackBar(
                       Overlay.of(context),
                       const CustomSnackBar.error(
-                        message: 'Error in fetching Speaker Data',
+                        message: StringConstants.errorInFetchingSpeakerData,
                       ),
                     );
                   },
@@ -90,7 +92,7 @@ class IndRecordScreen extends StatelessWidget {
             builder: (context, state) {
               return state.isFetching
                   ? const LoadingWidget(
-                      msg: 'Data is getting fetched',
+                      msg: StringConstants.dataIsGettingFetched,
                       icon: Icon(
                         Icons.person,
                       ),
@@ -104,7 +106,8 @@ class IndRecordScreen extends StatelessWidget {
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
                                   colors: Constants.linearGradientColorSet1(
-                                      context: context),
+                                    context: context,
+                                  ),
                                 ),
                               ),
                               height: 16,
@@ -121,22 +124,21 @@ class IndRecordScreen extends StatelessWidget {
                                 color: Theme.of(context)
                                     .primaryColor
                                     .withOpacity(0.5),
-                                child: const TabBarView(
-                                  children: [
-                                    _IndTabSection(),
-                                    _IndTabSection(),
-                                    _IndTabSection(),
-                                    _IndTabSection(),
-                                    _IndTabSection(),
-                                    _IndTabSection(),
-                                  ],
+                                child: TabBarView(
+                                  children: state.data.speakers
+                                      .map(
+                                        (e) => _IndTabSection(
+                                          speaker: e,
+                                        ),
+                                      )
+                                      .toList(),
                                 ),
                               ),
                             ),
                           ],
                         )
                       : const Center(
-                          child: Text('No Data Present'),
+                          child: Text(StringConstants.noDataPresent),
                         );
             },
           ),
@@ -157,11 +159,19 @@ class _FloatingActionButton extends StatelessWidget {
           previous.isRecording != current.isRecording,
       builder: (context, state) {
         return GestureDetector(
-          onTap: () => context.read<player.PlayerBloc>().add(
-                player.PlayerEvent.changeRecordingStatus(
-                  status: !state.isRecording,
-                ),
-              ),
+          onTap: () {
+            if (!state.isRecording) {
+              context.read<IndRecordBloc>().add(
+                    const IndRecordEvent.init(),
+                  );
+            }
+
+            context.read<player.PlayerBloc>().add(
+                  player.PlayerEvent.changeRecordingStatus(
+                    status: !state.isRecording,
+                  ),
+                );
+          },
           child: CustomImageView(
             imagePath:
                 state.isRecording ? AppAssets.stopIcon : AppAssets.mikeIcon,
@@ -179,7 +189,7 @@ class _BottomNav extends StatelessWidget {
         Overlay.of(context),
         CustomSnackBar.info(
           backgroundColor: Theme.of(context).colorScheme.scrim,
-          message: 'It is not Implemented.',
+          message: StringConstants.itIsNotImplemented,
           textStyle: Theme.of(context).textTheme.headlineLarge!,
         ),
       );
@@ -205,7 +215,7 @@ class _BottomNav extends StatelessWidget {
                 children: [
                   const Icon(Icons.note),
                   Text(
-                    'Record',
+                    StringConstants.record,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ],
@@ -217,7 +227,7 @@ class _BottomNav extends StatelessWidget {
                 children: [
                   const Icon(Icons.insights),
                   Text(
-                    'Insight',
+                    StringConstants.insight,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ],

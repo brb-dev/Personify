@@ -20,9 +20,9 @@ TranscriptDto _$TranscriptDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TranscriptDto {
-  @JsonKey(name: 'results', readValue: readTranscript, defaultValue: '')
+  @JsonKey(name: 'transcript', readValue: readTranscript, defaultValue: '')
   String get transcript => throw _privateConstructorUsedError;
-  @JsonKey(name: 'summary', readValue: readTranscript, defaultValue: '')
+  @JsonKey(name: 'summary', defaultValue: '')
   String get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,10 +38,9 @@ abstract class $TranscriptDtoCopyWith<$Res> {
       _$TranscriptDtoCopyWithImpl<$Res, TranscriptDto>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'results', readValue: readTranscript, defaultValue: '')
+      {@JsonKey(name: 'transcript', readValue: readTranscript, defaultValue: '')
       String transcript,
-      @JsonKey(name: 'summary', readValue: readTranscript, defaultValue: '')
-      String summary});
+      @JsonKey(name: 'summary', defaultValue: '') String summary});
 }
 
 /// @nodoc
@@ -82,10 +81,9 @@ abstract class _$$TranscriptDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'results', readValue: readTranscript, defaultValue: '')
+      {@JsonKey(name: 'transcript', readValue: readTranscript, defaultValue: '')
       String transcript,
-      @JsonKey(name: 'summary', readValue: readTranscript, defaultValue: '')
-      String summary});
+      @JsonKey(name: 'summary', defaultValue: '') String summary});
 }
 
 /// @nodoc
@@ -119,20 +117,19 @@ class __$$TranscriptDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TranscriptDtoImpl extends _TranscriptDto {
   const _$TranscriptDtoImpl(
-      {@JsonKey(name: 'results', readValue: readTranscript, defaultValue: '')
+      {@JsonKey(name: 'transcript', readValue: readTranscript, defaultValue: '')
       required this.transcript,
-      @JsonKey(name: 'summary', readValue: readTranscript, defaultValue: '')
-      required this.summary})
+      @JsonKey(name: 'summary', defaultValue: '') required this.summary})
       : super._();
 
   factory _$TranscriptDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$TranscriptDtoImplFromJson(json);
 
   @override
-  @JsonKey(name: 'results', readValue: readTranscript, defaultValue: '')
+  @JsonKey(name: 'transcript', readValue: readTranscript, defaultValue: '')
   final String transcript;
   @override
-  @JsonKey(name: 'summary', readValue: readTranscript, defaultValue: '')
+  @JsonKey(name: 'summary', defaultValue: '')
   final String summary;
 
   @override
@@ -170,9 +167,9 @@ class _$TranscriptDtoImpl extends _TranscriptDto {
 
 abstract class _TranscriptDto extends TranscriptDto {
   const factory _TranscriptDto(
-      {@JsonKey(name: 'results', readValue: readTranscript, defaultValue: '')
+      {@JsonKey(name: 'transcript', readValue: readTranscript, defaultValue: '')
       required final String transcript,
-      @JsonKey(name: 'summary', readValue: readTranscript, defaultValue: '')
+      @JsonKey(name: 'summary', defaultValue: '')
       required final String summary}) = _$TranscriptDtoImpl;
   const _TranscriptDto._() : super._();
 
@@ -180,10 +177,10 @@ abstract class _TranscriptDto extends TranscriptDto {
       _$TranscriptDtoImpl.fromJson;
 
   @override
-  @JsonKey(name: 'results', readValue: readTranscript, defaultValue: '')
+  @JsonKey(name: 'transcript', readValue: readTranscript, defaultValue: '')
   String get transcript;
   @override
-  @JsonKey(name: 'summary', readValue: readTranscript, defaultValue: '')
+  @JsonKey(name: 'summary', defaultValue: '')
   String get summary;
   @override
   @JsonKey(ignore: true)

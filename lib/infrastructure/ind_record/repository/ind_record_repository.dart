@@ -47,6 +47,15 @@ class IndRecordRepository implements IIndRecordRepository {
     required File audioFile,
     required String datagrapApiKey,
   }) async {
+    if (config.appFlavor == Flavor.mock) {
+      try {
+        final record = await localDataSource.fetchTranscript();
+
+        return Right(record);
+      } catch (e) {
+        return Left(FailureHandler.handleFailure(e));
+      }
+    }
     try {
       final record = await remoteDataSource.fetchTranscript(
         audioFile: audioFile,
@@ -64,6 +73,15 @@ class IndRecordRepository implements IIndRecordRepository {
     required String transcript,
     required String opeAIApiKey,
   }) async {
+    if (config.appFlavor == Flavor.mock) {
+      try {
+        final record = await localDataSource.fetchSummary();
+
+        return Right(record);
+      } catch (e) {
+        return Left(FailureHandler.handleFailure(e));
+      }
+    }
     try {
       final summary = await remoteDataSource.fetchSummary(
         transcript: transcript,

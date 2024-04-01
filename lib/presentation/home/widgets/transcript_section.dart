@@ -7,7 +7,7 @@ class _TranscriptSection extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final a = width * 0.09;
     print('Width===>$width');
-    print('Length===>${_text.length}');
+    //print('Length===>${_text.length}');
     return Container(
       height: MediaQuery.of(context).size.height * 0.3 + 70,
       decoration: BoxDecoration(
@@ -65,9 +65,6 @@ class _TranscriptSection extends StatelessWidget {
       ),
     );
   }
-
-  String get _text =>
-      'Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.Business partners discussed issues of supply disruptions from China. Ultimately they decided to find another supplier.';
 
   List<BoxShadow> _boxShadow({required BuildContext context}) => [
         BoxShadow(

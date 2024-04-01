@@ -16,7 +16,7 @@ class _TranscriptTextWidget extends StatelessWidget {
               showTopSnackBar(
                 Overlay.of(context),
                 const CustomSnackBar.error(
-                  message: 'Error in fetching Transcript from Datagram API',
+                  message: StringConstants.errorFetchingTranscript,
                 ),
               );
             },
@@ -26,7 +26,8 @@ class _TranscriptTextWidget extends StatelessWidget {
       },
       buildWhen: (previous, current) =>
           previous.isTranscriptFetching != current.isTranscriptFetching ||
-          previous.isSummaryFetching != current.isSummaryFetching,
+          previous.isSummaryFetching != current.isSummaryFetching ||
+          previous.tappedButton != current.tappedButton,
       builder: (context, state) {
         return Expanded(
           child: SizedBox(
@@ -41,7 +42,7 @@ class _TranscriptTextWidget extends StatelessWidget {
                 : state.transcript.transcript.isEmpty
                     ? const Center(
                         child: Text(
-                          'Please record to see transcript or Summary',
+                          StringConstants.pleaseRecord,
                           textAlign: TextAlign.center,
                         ),
                       )
@@ -76,8 +77,8 @@ class _ShowTranscriptOrSummary extends StatelessWidget {
       trimMode: TrimMode.Line,
       trimLines: 4,
       colorClickableText: Theme.of(context).colorScheme.inversePrimary,
-      trimCollapsedText: 'Show more',
-      trimExpandedText: ' Show less',
+      trimCollapsedText: StringConstants.showMore,
+      trimExpandedText: StringConstants.showLess,
       lessStyle: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.bold,

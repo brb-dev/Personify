@@ -52,6 +52,15 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
         );
       },
       fetchTranscript: (value) async {
+        if (state.transcript.transcript.isNotEmpty) {
+          emit(
+            state.copyWith(
+              apiFailureOrSuccessOption: none(),
+              tappedButton: TappedButton.fullText,
+            ),
+          );
+          return;
+        }
         emit(
           state.copyWith(
             isTranscriptFetching: true,
@@ -80,11 +89,19 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
                 tappedButton: TappedButton.fullText,
               ),
             );
-            add(const IndRecordEvent.fetchData());
           },
         );
       },
       fetchSummary: (value) async {
+        if (state.transcript.summary.isNotEmpty) {
+          emit(
+            state.copyWith(
+              apiFailureOrSuccessOption: none(),
+              tappedButton: TappedButton.fullSummary,
+            ),
+          );
+          return;
+        }
         emit(
           state.copyWith(
             isSummaryFetching: true,

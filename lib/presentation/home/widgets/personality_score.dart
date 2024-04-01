@@ -53,7 +53,7 @@ class _PersonalityScore extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Personality Score",
+                  StringConstants.personalityScore,
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
                 const SizedBox(height: 4),

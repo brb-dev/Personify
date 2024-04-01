@@ -10,14 +10,24 @@ class _TranscriptButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<IndRecordBloc, IndRecordState>(
       buildWhen: (previous, current) =>
-          previous.transcript.transcript != current.transcript.transcript,
+          previous.transcript.transcript != current.transcript.transcript ||
+          previous.transcript.summary != current.transcript.summary ||
+          previous.tappedButton != current.tappedButton,
       builder: (context, state) {
         return ElevatedButton(
           style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
             side: MaterialStateProperty.resolveWith<BorderSide>(
               (_) {
                 return BorderSide(
-                  color: _borderColor(context: context, state: state),
+                  color: state.tappedButton == TappedButton.fullSummary &&
+                          !isFullText
+                      ? Theme.of(context).colorScheme.secondary
+                      : state.tappedButton == TappedButton.fullText &&
+                              isFullText
+                          ? Theme.of(context).colorScheme.secondary
+                          : state.tappedButton == TappedButton.none
+                              ? Theme.of(context).colorScheme.background
+                              : Theme.of(context).canvasColor,
                 );
               },
             ),
@@ -30,11 +40,11 @@ class _TranscriptButton extends StatelessWidget {
             ),
           ),
           onPressed: state.transcript.transcript.isEmpty ||
-                  state.transcript.summary.isEmpty
+                  state.isFetchingTranscriptOrSummary
               ? null
               : () => _handleButtonClick(context: context),
           child: Text(
-            isFullText ? 'Full Text' : 'Full Summary',
+            isFullText ? StringConstants.fullText : StringConstants.fullSummary,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
         );
@@ -44,25 +54,19 @@ class _TranscriptButton extends StatelessWidget {
 
   void _handleButtonClick({required BuildContext context}) {
     if (isFullText) {
+      context.read<IndRecordBloc>().add(
+            IndRecordEvent.fetchTranscript(
+              datagramApiKey:
+                  context.read<AuthBloc>().state.user?.datagramKey ?? '',
+            ),
+          );
     } else {
-      context.read<IndRecordBloc>().add(IndRecordEvent.fetchSummary(
-          openAiApiKey: context.read<AuthBloc>().state.user?.openAIKey ?? ''));
+      context.read<IndRecordBloc>().add(
+            IndRecordEvent.fetchSummary(
+              openAiApiKey:
+                  context.read<AuthBloc>().state.user?.openAIKey ?? '',
+            ),
+          );
     }
   }
-
-  Color _borderColor({
-    required BuildContext context,
-    required IndRecordState state,
-  }) =>
-      isFullText
-          ? state.isFullTextTapped
-              ? Theme.of(context).colorScheme.secondary
-              : state.transcript.transcript.isEmpty
-                  ? Theme.of(context).colorScheme.background
-                  : Theme.of(context).canvasColor
-          : state.isFullSummaryTapped
-              ? Theme.of(context).colorScheme.secondary
-              : state.transcript.summary.isEmpty
-                  ? Theme.of(context).colorScheme.background
-                  : Theme.of(context).canvasColor;
 }
