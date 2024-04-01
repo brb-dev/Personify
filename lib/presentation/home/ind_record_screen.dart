@@ -8,6 +8,7 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../application/core/player/player_bloc.dart' as player;
+import '../../application/core/show_more/show_more_bloc.dart';
 import '../../application/ind_record/ind_record_bloc.dart';
 import '../../domain/ind_record/entities/ind_record_entity.dart';
 import '../../domain/ind_record/entities/speaker_details_entity.dart';
@@ -29,6 +30,7 @@ part 'widgets/highlight_section.dart';
 part 'widgets/play_audio.dart';
 part 'widgets/personality_score_result.dart';
 part 'widgets/transcript_button.dart';
+part 'widgets/show_more_widget.dart';
 
 @RoutePage()
 class IndRecordScreen extends StatelessWidget {

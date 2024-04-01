@@ -1,10 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:personify/application/core/show_more/show_more_bloc.dart';
-import 'package:personify/application/ind_record/ind_record_bloc.dart';
+part of '../ind_record_screen.dart';
 
 class ShowMoreWidget extends StatelessWidget {
   const ShowMoreWidget({
