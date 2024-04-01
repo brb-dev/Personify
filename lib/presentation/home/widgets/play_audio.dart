@@ -181,7 +181,7 @@ class _PlayAudioState extends State<_PlayAudio> {
                                 right: 16,
                               ),
                               child: const Text(
-                                'Please record to see recordings.',
+                                StringConstants.pleaseRecordToSeeRecordings,
                                 textAlign: TextAlign.center,
                               ),
                             )

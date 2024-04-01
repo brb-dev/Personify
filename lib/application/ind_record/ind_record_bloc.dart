@@ -5,10 +5,10 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:personify/domain/ind_record/entities/transcript_entity.dart';
 
 import '../../domain/core/error/api_failure.dart';
 import '../../domain/ind_record/entities/ind_record_entity.dart';
+import '../../domain/ind_record/entities/transcript_entity.dart';
 import '../../domain/ind_record/repository/i_ind_record_repository.dart';
 
 part 'ind_record_bloc.freezed.dart';
@@ -26,7 +26,8 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
   Future<void> _onEvent(
       IndRecordEvent event, Emitter<IndRecordState> emit) async {
     await event.map(
-      init: (_) async => emit(IndRecordState.initial()),
+      init: (_) async =>
+          emit(IndRecordState.initial().copyWith(data: state.data)),
       fetchData: (_) async {
         emit(
           state.copyWith(
@@ -52,10 +53,21 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
         );
       },
       fetchTranscript: (value) async {
+        if (state.transcript.transcript.isNotEmpty) {
+          emit(
+            state.copyWith(
+              apiFailureOrSuccessOption: none(),
+              tappedButton: TappedButton.fullText,
+              isExpanded: false,
+            ),
+          );
+          return;
+        }
         emit(
           state.copyWith(
             isTranscriptFetching: true,
             apiFailureOrSuccessOption: none(),
+            isExpanded: false,
           ),
         );
         final Directory directory = await getApplicationDocumentsDirectory();
@@ -80,15 +92,28 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
                 tappedButton: TappedButton.fullText,
               ),
             );
-            add(const IndRecordEvent.fetchData());
+            if (state.data == IndRecord.empty()) {
+              add(const IndRecordEvent.fetchData());
+            }
           },
         );
       },
       fetchSummary: (value) async {
+        if (state.transcript.summary.isNotEmpty) {
+          emit(
+            state.copyWith(
+              apiFailureOrSuccessOption: none(),
+              tappedButton: TappedButton.fullSummary,
+              isExpanded: false,
+            ),
+          );
+          return;
+        }
         emit(
           state.copyWith(
             isSummaryFetching: true,
             apiFailureOrSuccessOption: none(),
+            isExpanded: false,
           ),
         );
         final recordOrError = await indRecordRepository.fetchSummary(
@@ -115,6 +140,9 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
           },
         );
       },
+      handleExpansion: (_) async => emit(
+        state.copyWith(isExpanded: !state.isExpanded),
+      ),
     );
   }
 }

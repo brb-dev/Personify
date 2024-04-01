@@ -63,8 +63,8 @@ class _HighlightSection extends StatelessWidget {
                 trimLines: 2,
                 colorClickableText:
                     Theme.of(context).colorScheme.inversePrimary,
-                trimCollapsedText: 'Show more',
-                trimExpandedText: '...Show less',
+                trimCollapsedText: StringConstants.showMore,
+                trimExpandedText: StringConstants.showLess,
                 lessStyle: Theme.of(context).textTheme.labelMedium,
                 moreStyle: Theme.of(context).textTheme.labelMedium,
                 style: Theme.of(context).textTheme.headlineSmall,

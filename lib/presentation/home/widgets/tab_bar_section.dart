@@ -46,37 +46,40 @@ class _TabBarSection extends StatelessWidget {
               ),
             ],
           ),
-          child: TabBar(
-            labelPadding: EdgeInsets.zero,
-            labelColor: Theme.of(context).canvasColor,
-            labelStyle: Theme.of(context).textTheme.bodySmall,
-            unselectedLabelColor: Theme.of(context).canvasColor,
-            unselectedLabelStyle: Theme.of(context).textTheme.bodySmall,
-            indicatorPadding: const EdgeInsets.all(
-              5.5,
-            ),
-            indicator: BoxDecoration(
-              color: Theme.of(context).colorScheme.inverseSurface,
-              borderRadius: BorderRadius.circular(
-                5,
-              ),
-            ),
-            indicatorSize: TabBarIndicatorSize.tab,
-            tabs: _speakerNames
-                .map(
-                  (e) => Tab(
-                    child: Text(
-                      e,
-                    ),
+          child: BlocBuilder<IndRecordBloc, IndRecordState>(
+            buildWhen: (previous, current) =>
+                previous.isFetching != current.isFetching,
+            builder: (context, state) {
+              return TabBar(
+                labelPadding: EdgeInsets.zero,
+                labelColor: Theme.of(context).canvasColor,
+                labelStyle: Theme.of(context).textTheme.bodySmall,
+                unselectedLabelColor: Theme.of(context).canvasColor,
+                unselectedLabelStyle: Theme.of(context).textTheme.bodySmall,
+                indicatorPadding: const EdgeInsets.all(
+                  5.5,
+                ),
+                indicator: BoxDecoration(
+                  color: Theme.of(context).colorScheme.inverseSurface,
+                  borderRadius: BorderRadius.circular(
+                    5,
                   ),
-                )
-                .toList(),
+                ),
+                indicatorSize: TabBarIndicatorSize.tab,
+                tabs: state.data.speakers
+                    .map(
+                      (e) => Tab(
+                        child: Text(
+                          e.displayName,
+                        ),
+                      ),
+                    )
+                    .toList(),
+              );
+            },
           ),
         ),
       ),
     );
   }
 }
-
-List<String> get _speakerNames =>
-    ['John', 'Steve', 'Mike', 'Gori', 'Anna', '...'];

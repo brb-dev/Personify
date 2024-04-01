@@ -41,23 +41,24 @@ class _PersonalityScoreResultState extends State<_PersonalityScoreResult>
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: _animation,
-        builder: (context, child) {
-          return RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: _animation.value.toInt().toString(),
-                  style: Theme.of(context).textTheme.labelLarge,
-                ),
-                TextSpan(
-                  text: "/10",
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-              ],
-            ),
-            textAlign: TextAlign.left,
-          );
-        });
+      animation: _animation,
+      builder: (context, child) {
+        return RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: _animation.value.toInt().toString(),
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              TextSpan(
+                text: "/10",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ],
+          ),
+          textAlign: TextAlign.left,
+        );
+      },
+    );
   }
 }

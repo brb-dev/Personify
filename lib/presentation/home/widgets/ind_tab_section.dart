@@ -1,7 +1,12 @@
 part of '../ind_record_screen.dart';
 
 class _IndTabSection extends StatelessWidget {
-  const _IndTabSection({super.key});
+  const _IndTabSection({
+    super.key,
+    required this.speaker,
+  });
+
+  final SpeakerDetails speaker;
 
   @override
   Widget build(BuildContext context) {
@@ -12,34 +17,41 @@ class _IndTabSection extends StatelessWidget {
           left: 20,
           right: 20,
         ),
-        child: Column(
-          children: [
-            Text(
-              'Small Quote of Speaker1',
-              style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    color: Theme.of(context).canvasColor,
+        child: BlocBuilder<IndRecordBloc, IndRecordState>(
+            buildWhen: (previous, current) =>
+                previous.isFetching != current.isFetching,
+            builder: (context, state) {
+              return Column(
+                children: [
+                  Text(
+                    StringConstants.smallQuote,
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          color: Theme.of(context).canvasColor,
+                        ),
                   ),
-            ),
-            const SizedBox(height: 10),
-            const _PersonalityScore(),
-            const SizedBox(height: 10),
-            for (var i = 0; i < _emotionData.length; i = i + 2)
-              _PersonalityRowItem(
-                data1: _emotionData[i],
-                data2:
-                    _emotionData.length % 2 != 0 && i == _emotionData.length - 1
-                        ? null
-                        : _emotionData[i + 1],
-              ),
-            ..._highlightData.map(
-              (e) => _HighlightSection(
-                title: e.title,
-                answer: e.answer,
-              ),
-            ),
-            const SizedBox(height: 20),
-          ],
-        ),
+                  const SizedBox(height: 10),
+                  const _PersonalityScore(),
+                  const SizedBox(height: 10),
+                  for (var i = 0;
+                      i < speaker.emotionMap.entries.length;
+                      i = i + 2)
+                    _PersonalityRowItem(
+                      map1: speaker.emotionMap.entries.elementAt(i),
+                      map2: speaker.emotionMap.entries.length % 2 != 0 &&
+                              i == speaker.emotionMap.entries.length - 1
+                          ? null
+                          : speaker.emotionMap.entries.elementAt(i + 1),
+                    ),
+                  ...speaker.highlightMap.entries.map(
+                    (e) => _HighlightSection(
+                      title: e.key,
+                      answer: e.value,
+                    ),
+                  ),
+                  const SizedBox(height: 80),
+                ],
+              );
+            }),
       ),
     );
   }
@@ -47,11 +59,11 @@ class _IndTabSection extends StatelessWidget {
 
 class _PersonalityRowItem extends StatelessWidget {
   const _PersonalityRowItem({
-    required this.data1,
-    this.data2,
+    required this.map1,
+    this.map2,
   });
-  final _Data data1;
-  final _Data? data2;
+  final MapEntry map1;
+  final MapEntry? map2;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -60,13 +72,13 @@ class _PersonalityRowItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _EmotionIndicator(
-              title: data1.title,
-              rating: data1.rating,
+              title: map1.key,
+              rating: map1.value,
             ),
-            data2 != null
+            map2 != null
                 ? _EmotionIndicator(
-                    title: data2!.title,
-                    rating: data2!.rating,
+                    title: map2!.key,
+                    rating: map2!.value,
                     isLeft: false,
                   )
                 : Container(
@@ -76,58 +88,9 @@ class _PersonalityRowItem extends StatelessWidget {
           ],
         ),
         const SizedBox(
-          height: 12,
+          height: 16,
         ),
       ],
     );
   }
-}
-
-List<_Data> get _emotionData => [
-      _Data(title: 'Trust', rating: '7'),
-      _Data(title: 'Sentiment', rating: '2'),
-      _Data(title: 'Empathy', rating: '5'),
-      _Data(title: 'Charisma', rating: '7'),
-      _Data(title: 'Trust', rating: '7'),
-      _Data(title: 'Sentiment', rating: '2'),
-      _Data(title: 'Empathy', rating: '5'),
-      _Data(title: 'Charisma', rating: '7'),
-    ];
-
-class _Data {
-  final String title;
-  final String rating;
-  _Data({
-    required this.title,
-    required this.rating,
-  });
-}
-
-List<_HighlightData> get _highlightData => [
-      _HighlightData(
-        title: 'Quotes reflecting attitude towards me',
-        answer: 'Quotes: here will be a set of quotes',
-      ),
-      _HighlightData(
-        title: 'Conclusion',
-        answer:
-            'First, speaker mentioned he keeps a healthy lifestyle, but he likes alcohol as well as well asss',
-      ),
-      _HighlightData(
-        title: 'Favorite topics and interests',
-        answer: 'Sport. Speaker mentioned he likes a golf...',
-      ),
-      _HighlightData(
-          title: 'Least favorite topics',
-          answer:
-              'First, speaker mentioned he keeps a healthy lifestyle, but he likes alcohol as well...'),
-    ];
-
-class _HighlightData {
-  final String title;
-  final String answer;
-  _HighlightData({
-    required this.title,
-    required this.answer,
-  });
 }

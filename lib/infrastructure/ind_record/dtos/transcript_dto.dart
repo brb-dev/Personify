@@ -10,10 +10,9 @@ class TranscriptDto with _$TranscriptDto {
   const TranscriptDto._();
 
   const factory TranscriptDto({
-    @JsonKey(name: 'results', readValue: readTranscript, defaultValue: '')
+    @JsonKey(name: 'transcript', readValue: readTranscript, defaultValue: '')
     required String transcript,
-    @JsonKey(name: 'summary', readValue: readTranscript, defaultValue: '')
-    required String summary,
+    @JsonKey(name: 'summary', defaultValue: '') required String summary,
   }) = _TranscriptDto;
 
   Transcript toDomain() {

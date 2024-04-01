@@ -2,16 +2,15 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:personify/config.dart';
-import 'package:personify/locator.dart';
 
+import '../../config.dart';
 import '../../domain/auth/entities/login_entity.dart';
 import '../../domain/auth/repository/i_auth_repository.dart';
 import '../../domain/core/error/api_failure.dart';
 import '../../infrastructure/core/firebase/firebase_remote_config.dart';
+import '../../locator.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
@@ -30,16 +29,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     await event.map(
       init: (e) async => add(const AuthEvent.authCheck()),
       authCheck: (e) async {
-        emit(const AuthState.loading(isLoading: true));
         final Either<ApiFailure, Stream<User?>> result =
             await authRepository.isLoggedIn();
-        FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.instance;
-        await remoteConfig.setConfigSettings(RemoteConfigSettings(
-          fetchTimeout: const Duration(minutes: 1),
-          minimumFetchInterval: const Duration(hours: 12),
-        ));
-        await remoteConfig.ensureInitialized();
-        await remoteConfig.fetchAndActivate();
         await result.fold(
           (invalid) async => emit(const AuthState.unauthenticated()),
           (userStream) async => locator<Config>().appFlavor == Flavor.mock
@@ -72,16 +63,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         );
       },
       logout: (e) async {
-        emit(const AuthState.loading(
-          isLoading: true,
-        ));
         authRepository.logout();
         emit(const AuthState.unauthenticated());
       },
       signinWithGoogle: (_) async {
-        emit(const AuthState.loading(
-          isLoading: true,
-        ));
         final response = await authRepository.loginWithGoogle();
         await response.fold(
           (invalid) async => emit(const AuthState.unauthenticated()),

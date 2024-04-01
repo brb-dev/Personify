@@ -16,7 +16,7 @@ class _TranscriptTextWidget extends StatelessWidget {
               showTopSnackBar(
                 Overlay.of(context),
                 const CustomSnackBar.error(
-                  message: 'Error in fetching Transcript from Datagram API',
+                  message: StringConstants.errorFetchingTranscript,
                 ),
               );
             },
@@ -26,35 +26,34 @@ class _TranscriptTextWidget extends StatelessWidget {
       },
       buildWhen: (previous, current) =>
           previous.isTranscriptFetching != current.isTranscriptFetching ||
-          previous.isSummaryFetching != current.isSummaryFetching,
+          previous.isSummaryFetching != current.isSummaryFetching ||
+          previous.tappedButton != current.tappedButton,
       builder: (context, state) {
-        return Expanded(
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.7,
-            child: state.isFetchingTranscriptOrSummary
-                ? LoadingWidget(
-                    msg: state.fetchingMessage,
-                    icon: const Icon(
-                      Icons.dataset,
-                    ),
-                  )
-                : state.transcript.transcript.isEmpty
-                    ? const Center(
-                        child: Text(
-                          'Please record to see transcript or Summary',
-                          textAlign: TextAlign.center,
-                        ),
-                      )
-                    : state.tappedButton == TappedButton.fullText
-                        ? _ShowTranscriptOrSummary(
-                            msg: state.transcript.transcript,
-                          )
-                        : state.tappedButton == TappedButton.fullSummary
-                            ? _ShowTranscriptOrSummary(
-                                msg: state.transcript.summary,
-                              )
-                            : const SizedBox.shrink(),
-          ),
+        return SizedBox(
+          width: MediaQuery.of(context).size.width * 0.7,
+          child: state.isFetchingTranscriptOrSummary
+              ? LoadingWidget(
+                  msg: state.fetchingMessage,
+                  icon: const Icon(
+                    Icons.dataset,
+                  ),
+                )
+              : state.transcript.transcript.isEmpty
+                  ? const Center(
+                      child: Text(
+                        StringConstants.pleaseRecord,
+                        textAlign: TextAlign.center,
+                      ),
+                    )
+                  : state.tappedButton == TappedButton.fullText
+                      ? _ShowTranscriptOrSummary(
+                          msg: state.transcript.transcript,
+                        )
+                      : state.tappedButton == TappedButton.fullSummary
+                          ? _ShowTranscriptOrSummary(
+                              msg: state.transcript.summary,
+                            )
+                          : const SizedBox.shrink(),
         );
       },
     );
@@ -71,25 +70,6 @@ class _ShowTranscriptOrSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ReadMoreText(
-      msg,
-      trimMode: TrimMode.Line,
-      trimLines: 4,
-      colorClickableText: Theme.of(context).colorScheme.inversePrimary,
-      trimCollapsedText: 'Show more',
-      trimExpandedText: ' Show less',
-      lessStyle: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.bold,
-        color: Theme.of(context).colorScheme.inversePrimary,
-      ),
-      moreStyle: TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.bold,
-        color: Theme.of(context).colorScheme.inversePrimary,
-      ),
-      textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.bodyMedium,
-    );
+    return ShowMoreWidget(msg: msg, maxLine: 3);
   }
 }

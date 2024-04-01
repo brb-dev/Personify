@@ -8,12 +8,12 @@ part of 'transcript_dto.dart';
 
 _$TranscriptDtoImpl _$$TranscriptDtoImplFromJson(Map<String, dynamic> json) =>
     _$TranscriptDtoImpl(
-      transcript: readTranscript(json, 'results') as String? ?? '',
-      summary: readTranscript(json, 'summary') as String? ?? '',
+      transcript: readTranscript(json, 'transcript') as String? ?? '',
+      summary: json['summary'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$TranscriptDtoImplToJson(_$TranscriptDtoImpl instance) =>
     <String, dynamic>{
-      'results': instance.transcript,
+      'transcript': instance.transcript,
       'summary': instance.summary,
     };

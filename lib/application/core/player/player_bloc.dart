@@ -44,14 +44,12 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
               localFilePath: file.path,
             ),
           );
-          //add(PlayerEvent.evaluateFileByteData(path: file.path));
         } else {
           emit(
             state.copyWith(
               isRecording: value.status,
             ),
           );
-          // add(PlayerEvent.evaluateFileByteData(path: state.localFilePath));
         }
       },
     );

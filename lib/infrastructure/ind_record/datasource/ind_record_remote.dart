@@ -5,13 +5,13 @@ import 'package:dart_openai/dart_openai.dart';
 import 'package:deepgram_speech_to_text/deepgram_speech_to_text.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:personify/domain/ind_record/entities/transcript_entity.dart';
-import 'package:personify/infrastructure/ind_record/dtos/transcript_dto.dart';
 
 import '../../../config.dart';
 import '../../../domain/core/error/exception_handler.dart';
 import '../../../domain/ind_record/entities/ind_record_entity.dart';
+import '../../../domain/ind_record/entities/transcript_entity.dart';
 import '../dtos/ind_record_dto.dart';
+import '../dtos/transcript_dto.dart';
 
 class IndRecordRemoteDataSource {
   DataSourceExceptionHandler dataSourceExceptionHandler;
@@ -39,13 +39,7 @@ class IndRecordRemoteDataSource {
         'punctuate': true,
         'utterances': true,
       });
-
-      final Directory directory = await getApplicationDocumentsDirectory();
-      final File file = File('${directory.path}/audio.mp3');
-      ByteData byteData = await rootBundle.load('assets/audio/audio.mp3');
-      final updatedFile =
-          await file.writeAsBytes(byteData.buffer.asUint8List());
-      String json1 = await deepgram.transcribeFromFile(updatedFile);
+      String json1 = await deepgram.transcribeFromFile(audioFile);
       final data1 = json.decode(json1);
 
       return TranscriptDto.fromJson(data1).toDomain();
