@@ -7,6 +7,9 @@ The assignment doc was keep changing so I made it available inside codebase 'ass
 ### Branching
 The branch [main] contains the final code.
 
+### Sigin
+Only google signin will work.
+
 ### Require
 - [Vscode](https://code.visualstudio.com/)
 - [Flutter extension](https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter)

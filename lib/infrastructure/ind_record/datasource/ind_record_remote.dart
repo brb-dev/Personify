@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:dart_openai/dart_openai.dart';
 import 'package:deepgram_speech_to_text/deepgram_speech_to_text.dart';
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
 
 import '../../../config.dart';
 import '../../../domain/core/error/exception_handler.dart';
