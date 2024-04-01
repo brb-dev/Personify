@@ -13,6 +13,10 @@ class LoginDto with _$LoginDto {
     @JsonKey(name: 'displayName', defaultValue: '') required String displayName,
     @JsonKey(name: 'email', defaultValue: '') required String email,
     @JsonKey(name: 'photoURL', defaultValue: '') required String photoURL,
+    @JsonKey(name: 'datagram_api_key', defaultValue: '')
+    required String datagramKey,
+    @JsonKey(name: 'openai_api_key', defaultValue: '')
+    required String openAIKey,
   }) = _LoginDto;
 
   Login toDomain() {
@@ -20,6 +24,8 @@ class LoginDto with _$LoginDto {
       displayName: displayName,
       email: email,
       photoURL: photoURL,
+      datagramKey: datagramKey,
+      openAIKey: openAIKey,
     );
   }
 

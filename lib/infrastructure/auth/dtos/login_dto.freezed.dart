@@ -26,6 +26,10 @@ mixin _$LoginDto {
   String get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'photoURL', defaultValue: '')
   String get photoURL => throw _privateConstructorUsedError;
+  @JsonKey(name: 'datagram_api_key', defaultValue: '')
+  String get datagramKey => throw _privateConstructorUsedError;
+  @JsonKey(name: 'openai_api_key', defaultValue: '')
+  String get openAIKey => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +45,9 @@ abstract class $LoginDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'displayName', defaultValue: '') String displayName,
       @JsonKey(name: 'email', defaultValue: '') String email,
-      @JsonKey(name: 'photoURL', defaultValue: '') String photoURL});
+      @JsonKey(name: 'photoURL', defaultValue: '') String photoURL,
+      @JsonKey(name: 'datagram_api_key', defaultValue: '') String datagramKey,
+      @JsonKey(name: 'openai_api_key', defaultValue: '') String openAIKey});
 }
 
 /// @nodoc
@@ -60,6 +66,8 @@ class _$LoginDtoCopyWithImpl<$Res, $Val extends LoginDto>
     Object? displayName = null,
     Object? email = null,
     Object? photoURL = null,
+    Object? datagramKey = null,
+    Object? openAIKey = null,
   }) {
     return _then(_value.copyWith(
       displayName: null == displayName
@@ -73,6 +81,14 @@ class _$LoginDtoCopyWithImpl<$Res, $Val extends LoginDto>
       photoURL: null == photoURL
           ? _value.photoURL
           : photoURL // ignore: cast_nullable_to_non_nullable
+              as String,
+      datagramKey: null == datagramKey
+          ? _value.datagramKey
+          : datagramKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      openAIKey: null == openAIKey
+          ? _value.openAIKey
+          : openAIKey // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -89,7 +105,9 @@ abstract class _$$LoginDtoImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'displayName', defaultValue: '') String displayName,
       @JsonKey(name: 'email', defaultValue: '') String email,
-      @JsonKey(name: 'photoURL', defaultValue: '') String photoURL});
+      @JsonKey(name: 'photoURL', defaultValue: '') String photoURL,
+      @JsonKey(name: 'datagram_api_key', defaultValue: '') String datagramKey,
+      @JsonKey(name: 'openai_api_key', defaultValue: '') String openAIKey});
 }
 
 /// @nodoc
@@ -106,6 +124,8 @@ class __$$LoginDtoImplCopyWithImpl<$Res>
     Object? displayName = null,
     Object? email = null,
     Object? photoURL = null,
+    Object? datagramKey = null,
+    Object? openAIKey = null,
   }) {
     return _then(_$LoginDtoImpl(
       displayName: null == displayName
@@ -120,6 +140,14 @@ class __$$LoginDtoImplCopyWithImpl<$Res>
           ? _value.photoURL
           : photoURL // ignore: cast_nullable_to_non_nullable
               as String,
+      datagramKey: null == datagramKey
+          ? _value.datagramKey
+          : datagramKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      openAIKey: null == openAIKey
+          ? _value.openAIKey
+          : openAIKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -131,7 +159,11 @@ class _$LoginDtoImpl extends _LoginDto {
       {@JsonKey(name: 'displayName', defaultValue: '')
       required this.displayName,
       @JsonKey(name: 'email', defaultValue: '') required this.email,
-      @JsonKey(name: 'photoURL', defaultValue: '') required this.photoURL})
+      @JsonKey(name: 'photoURL', defaultValue: '') required this.photoURL,
+      @JsonKey(name: 'datagram_api_key', defaultValue: '')
+      required this.datagramKey,
+      @JsonKey(name: 'openai_api_key', defaultValue: '')
+      required this.openAIKey})
       : super._();
 
   factory _$LoginDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -146,10 +178,16 @@ class _$LoginDtoImpl extends _LoginDto {
   @override
   @JsonKey(name: 'photoURL', defaultValue: '')
   final String photoURL;
+  @override
+  @JsonKey(name: 'datagram_api_key', defaultValue: '')
+  final String datagramKey;
+  @override
+  @JsonKey(name: 'openai_api_key', defaultValue: '')
+  final String openAIKey;
 
   @override
   String toString() {
-    return 'LoginDto(displayName: $displayName, email: $email, photoURL: $photoURL)';
+    return 'LoginDto(displayName: $displayName, email: $email, photoURL: $photoURL, datagramKey: $datagramKey, openAIKey: $openAIKey)';
   }
 
   @override
@@ -161,12 +199,17 @@ class _$LoginDtoImpl extends _LoginDto {
                 other.displayName == displayName) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.photoURL, photoURL) ||
-                other.photoURL == photoURL));
+                other.photoURL == photoURL) &&
+            (identical(other.datagramKey, datagramKey) ||
+                other.datagramKey == datagramKey) &&
+            (identical(other.openAIKey, openAIKey) ||
+                other.openAIKey == openAIKey));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, displayName, email, photoURL);
+  int get hashCode => Object.hash(
+      runtimeType, displayName, email, photoURL, datagramKey, openAIKey);
 
   @JsonKey(ignore: true)
   @override
@@ -188,7 +231,11 @@ abstract class _LoginDto extends LoginDto {
       required final String displayName,
       @JsonKey(name: 'email', defaultValue: '') required final String email,
       @JsonKey(name: 'photoURL', defaultValue: '')
-      required final String photoURL}) = _$LoginDtoImpl;
+      required final String photoURL,
+      @JsonKey(name: 'datagram_api_key', defaultValue: '')
+      required final String datagramKey,
+      @JsonKey(name: 'openai_api_key', defaultValue: '')
+      required final String openAIKey}) = _$LoginDtoImpl;
   const _LoginDto._() : super._();
 
   factory _LoginDto.fromJson(Map<String, dynamic> json) =
@@ -203,6 +250,12 @@ abstract class _LoginDto extends LoginDto {
   @override
   @JsonKey(name: 'photoURL', defaultValue: '')
   String get photoURL;
+  @override
+  @JsonKey(name: 'datagram_api_key', defaultValue: '')
+  String get datagramKey;
+  @override
+  @JsonKey(name: 'openai_api_key', defaultValue: '')
+  String get openAIKey;
   @override
   @JsonKey(ignore: true)
   _$$LoginDtoImplCopyWith<_$LoginDtoImpl> get copyWith =>

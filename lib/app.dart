@@ -8,7 +8,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:personify/firebase_options.dart';
 
 import 'application/auth/auth_bloc.dart';
+import 'application/core/player/player_bloc.dart';
+import 'application/ind_record/ind_record_bloc.dart';
 import 'config.dart';
+import 'infrastructure/core/firebase/firebase_remote_config.dart';
 import 'locator.dart';
 import 'presentation/core/routes/app_router.dart';
 import 'presentation/core/routes/router_observer.dart';
@@ -27,6 +30,7 @@ void runAppWithCrashlyticsAndLocalization({required Flavor flavor}) {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform);
+      await locator<FirebaseRemoteConfigService>().init();
       runApp(
         const App(),
       );
@@ -48,6 +52,13 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider<AuthBloc>(
           create: (context) => locator<AuthBloc>()..add(const AuthEvent.init()),
+        ),
+        BlocProvider<IndRecordBloc>(
+          create: (context) => locator<IndRecordBloc>(),
+        ),
+        BlocProvider<PlayerBloc>(
+          create: (context) =>
+              locator<PlayerBloc>()..add(const PlayerEvent.init()),
         ),
       ],
       child: MaterialApp.router(

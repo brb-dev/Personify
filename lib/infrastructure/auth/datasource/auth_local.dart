@@ -1,9 +1,16 @@
-import 'dart:convert';
+import '../../../domain/auth/entities/login_entity.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
-import '../dtos/login_dto.dart';
+class AuthLocalDataSource {
+  Future<Login> signInWithGoogle() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return Login.empty().copyWith(
+      displayName: 'John Doe',
+      email: 'john.doe@yopmail.com',
+      photoURL: '',
+    );
+  }
 
-import 'package:google_sign_in/google_sign_in.dart';
-
-class AuthLocalDataSource {}
+  Future<bool> signOutFromGoogle() async {
+    return true;
+  }
+}

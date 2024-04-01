@@ -21,21 +21,42 @@ class AuthRepository implements IAuthRepository {
   });
 
   @override
-  Future<Either<ApiFailure, Unit>> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<Either<ApiFailure, bool>> logout() async {
+    if (config.appFlavor == Flavor.mock) {
+      try {
+        final success = await localDataSource.signOutFromGoogle();
+
+        return Right(success);
+      } catch (e) {
+        return Left(FailureHandler.handleFailure(e));
+      }
+    }
+    try {
+      final success = await remoteDataSource.signOutFromGoogle();
+
+      return Right(success);
+    } catch (e) {
+      return Left(FailureHandler.handleFailure(e));
+    }
   }
 
   @override
-  Future<Either<ApiFailure, Login>> loginWithApple(
-      {required String phoneNumber}) {
+  Future<Either<ApiFailure, Login>> loginWithApple() {
     // TODO: implement loginWithApple
     throw UnimplementedError();
   }
 
   @override
   Future<Either<ApiFailure, Login>> loginWithGoogle() async {
-    if (config.appFlavor == Flavor.mock) {}
+    if (config.appFlavor == Flavor.mock) {
+      try {
+        final login = await localDataSource.signInWithGoogle();
+
+        return Right(login);
+      } catch (e) {
+        return Left(FailureHandler.handleFailure(e));
+      }
+    }
     try {
       final login = await remoteDataSource.signInWithGoogle();
 
@@ -47,7 +68,6 @@ class AuthRepository implements IAuthRepository {
 
   @override
   Future<Either<ApiFailure, Stream<User?>>> isLoggedIn() async {
-    if (config.appFlavor == Flavor.mock) {}
     try {
       final isAuthStateChanged = await remoteDataSource.isAuthStateChanged();
 

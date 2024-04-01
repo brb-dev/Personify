@@ -19,6 +19,8 @@ mixin _$Login {
   String get displayName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get photoURL => throw _privateConstructorUsedError;
+  String get datagramKey => throw _privateConstructorUsedError;
+  String get openAIKey => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginCopyWith<Login> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +31,12 @@ abstract class $LoginCopyWith<$Res> {
   factory $LoginCopyWith(Login value, $Res Function(Login) then) =
       _$LoginCopyWithImpl<$Res, Login>;
   @useResult
-  $Res call({String displayName, String email, String photoURL});
+  $Res call(
+      {String displayName,
+      String email,
+      String photoURL,
+      String datagramKey,
+      String openAIKey});
 }
 
 /// @nodoc
@@ -48,6 +55,8 @@ class _$LoginCopyWithImpl<$Res, $Val extends Login>
     Object? displayName = null,
     Object? email = null,
     Object? photoURL = null,
+    Object? datagramKey = null,
+    Object? openAIKey = null,
   }) {
     return _then(_value.copyWith(
       displayName: null == displayName
@@ -62,6 +71,14 @@ class _$LoginCopyWithImpl<$Res, $Val extends Login>
           ? _value.photoURL
           : photoURL // ignore: cast_nullable_to_non_nullable
               as String,
+      datagramKey: null == datagramKey
+          ? _value.datagramKey
+          : datagramKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      openAIKey: null == openAIKey
+          ? _value.openAIKey
+          : openAIKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -73,7 +90,12 @@ abstract class _$$LoginImplCopyWith<$Res> implements $LoginCopyWith<$Res> {
       __$$LoginImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String displayName, String email, String photoURL});
+  $Res call(
+      {String displayName,
+      String email,
+      String photoURL,
+      String datagramKey,
+      String openAIKey});
 }
 
 /// @nodoc
@@ -90,6 +112,8 @@ class __$$LoginImplCopyWithImpl<$Res>
     Object? displayName = null,
     Object? email = null,
     Object? photoURL = null,
+    Object? datagramKey = null,
+    Object? openAIKey = null,
   }) {
     return _then(_$LoginImpl(
       displayName: null == displayName
@@ -104,6 +128,14 @@ class __$$LoginImplCopyWithImpl<$Res>
           ? _value.photoURL
           : photoURL // ignore: cast_nullable_to_non_nullable
               as String,
+      datagramKey: null == datagramKey
+          ? _value.datagramKey
+          : datagramKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      openAIKey: null == openAIKey
+          ? _value.openAIKey
+          : openAIKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -112,7 +144,11 @@ class __$$LoginImplCopyWithImpl<$Res>
 
 class _$LoginImpl extends _Login {
   const _$LoginImpl(
-      {required this.displayName, required this.email, required this.photoURL})
+      {required this.displayName,
+      required this.email,
+      required this.photoURL,
+      required this.datagramKey,
+      required this.openAIKey})
       : super._();
 
   @override
@@ -121,10 +157,14 @@ class _$LoginImpl extends _Login {
   final String email;
   @override
   final String photoURL;
+  @override
+  final String datagramKey;
+  @override
+  final String openAIKey;
 
   @override
   String toString() {
-    return 'Login(displayName: $displayName, email: $email, photoURL: $photoURL)';
+    return 'Login(displayName: $displayName, email: $email, photoURL: $photoURL, datagramKey: $datagramKey, openAIKey: $openAIKey)';
   }
 
   @override
@@ -136,11 +176,16 @@ class _$LoginImpl extends _Login {
                 other.displayName == displayName) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.photoURL, photoURL) ||
-                other.photoURL == photoURL));
+                other.photoURL == photoURL) &&
+            (identical(other.datagramKey, datagramKey) ||
+                other.datagramKey == datagramKey) &&
+            (identical(other.openAIKey, openAIKey) ||
+                other.openAIKey == openAIKey));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, displayName, email, photoURL);
+  int get hashCode => Object.hash(
+      runtimeType, displayName, email, photoURL, datagramKey, openAIKey);
 
   @JsonKey(ignore: true)
   @override
@@ -153,7 +198,9 @@ abstract class _Login extends Login {
   const factory _Login(
       {required final String displayName,
       required final String email,
-      required final String photoURL}) = _$LoginImpl;
+      required final String photoURL,
+      required final String datagramKey,
+      required final String openAIKey}) = _$LoginImpl;
   const _Login._() : super._();
 
   @override
@@ -162,6 +209,10 @@ abstract class _Login extends Login {
   String get email;
   @override
   String get photoURL;
+  @override
+  String get datagramKey;
+  @override
+  String get openAIKey;
   @override
   @JsonKey(ignore: true)
   _$$LoginImplCopyWith<_$LoginImpl> get copyWith =>

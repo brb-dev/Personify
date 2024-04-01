@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app_color.dart';
-import 'base_style.dart';
 import 'font_manager.dart';
 
 enum AppTheme {
@@ -10,7 +10,7 @@ enum AppTheme {
 }
 
 final appThemeData = {
-  AppTheme.dark: ThemeData.light().copyWith(
+  AppTheme.dark: ThemeData.dark().copyWith(
     scaffoldBackgroundColor: AppColor.black,
     primaryColor: AppColor.black,
     primaryColorLight: AppColor.black,
@@ -18,12 +18,32 @@ final appThemeData = {
     colorScheme: _colorScheme(),
     textTheme: _textTheme(),
     elevatedButtonTheme: _elevatedButtonTheme(),
+    appBarTheme: _appBarTheme(),
   ),
-  AppTheme.light: ThemeData.dark().copyWith(),
+  AppTheme.light: ThemeData.light().copyWith(),
 };
 
+AppBarTheme _appBarTheme() {
+  return AppBarTheme(
+    color: AppColor.black,
+    elevation: 0,
+    titleTextStyle: _textTheme().titleLarge,
+  );
+}
+
 ColorScheme _colorScheme() {
-  return const ColorScheme.light().copyWith();
+  return const ColorScheme.dark().copyWith(
+    inversePrimary: AppColor.skyBlue,
+    inverseSurface: AppColor.blue,
+    scrim: AppColor.gradient1,
+    shadow: AppColor.gradient2,
+    surface: AppColor.gradient3,
+    tertiary: AppColor.linearGradient1,
+    outline: AppColor.linearGradient2,
+    secondary: AppColor.lightBlue,
+    onInverseSurface: AppColor.transparentColor,
+    background: AppColor.lightGrey,
+  );
 }
 
 ElevatedButtonThemeData _elevatedButtonTheme() {
@@ -47,54 +67,81 @@ ElevatedButtonThemeData _elevatedButtonTheme() {
 }
 
 TextTheme _textTheme() {
-  return ThemeData.light().textTheme.copyWith(
-        titleLarge: BaseStyles.titleLarge.copyWith(
+  return ThemeData.dark().textTheme.copyWith(
+        titleLarge: GoogleFonts.inter(
           color: AppColor.white,
+          fontSize: FontSize.s18,
+          fontWeight: FontWeightManager.bold,
         ),
-        titleMedium: BaseStyles.titleMedium.copyWith(
+        titleMedium: GoogleFonts.inter(
           color: AppColor.white,
+          fontSize: FontSize.s12,
+          fontWeight: FontWeightManager.bold,
         ),
-        titleSmall: BaseStyles.titleSmall.copyWith(
+        titleSmall: GoogleFonts.inter(
           color: AppColor.white,
+          fontSize: FontSize.s10,
+          fontWeight: FontWeightManager.regular,
         ),
-        displayLarge: BaseStyles.headlineLarge.copyWith(
+        displayLarge: GoogleFonts.inter(
           color: AppColor.white,
+          fontSize: FontSize.s11,
+          fontWeight: FontWeightManager.regular,
         ),
-        displayMedium: BaseStyles.displaySmallBold.copyWith(
+        displayMedium: GoogleFonts.inter(
           color: AppColor.white,
+          fontSize: FontSize.s36,
+          fontWeight: FontWeightManager.bold,
         ),
-        displaySmall: BaseStyles.displaySmall.copyWith(
+        displaySmall: GoogleFonts.inter(
           color: AppColor.white,
+          fontSize: FontSize.s8,
+          fontWeight: FontWeightManager.regular,
         ),
-        headlineLarge: BaseStyles.headlineLarge.copyWith(
-          color: AppColor.white,
-        ),
-        headlineMedium: BaseStyles.headlineLargeBold.copyWith(
-          color: AppColor.white,
-          fontSize: FontSize.s16,
-        ),
-        headlineSmall: BaseStyles.headlineSmall.copyWith(
-          color: AppColor.white,
-        ),
-        labelLarge: BaseStyles.labelLarge.copyWith(
-          color: AppColor.white,
-        ),
-        labelMedium: BaseStyles.labelMedium.copyWith(
-          color: AppColor.white,
-        ),
-        labelSmall: BaseStyles.bodyLarge.copyWith(
+        headlineLarge: GoogleFonts.inter(
           color: AppColor.white,
           fontSize: FontSize.s11,
           fontWeight: FontWeightManager.bold,
         ),
-        bodyLarge: BaseStyles.bodyLarge.copyWith(
-          color: AppColor.white,
+        headlineMedium: GoogleFonts.inter(
+          color: AppColor.lightGrey,
+          fontSize: FontSize.s16,
+          fontWeight: FontWeightManager.bold,
         ),
-        bodyMedium: BaseStyles.bodyMedium.copyWith(
+        headlineSmall: GoogleFonts.inter(
           color: AppColor.white,
+          fontSize: FontSize.s12,
+          fontWeight: FontWeightManager.regular,
         ),
-        bodySmall: BaseStyles.bodySmall.copyWith(
+        labelLarge: GoogleFonts.inter(
           color: AppColor.white,
+          fontSize: FontSize.s25,
+          fontWeight: FontWeightManager.semiBold,
+        ),
+        labelMedium: GoogleFonts.inter(
+          color: AppColor.skyBlue,
+          fontSize: FontSize.s14,
+          fontWeight: FontWeightManager.regular,
+        ),
+        labelSmall: GoogleFonts.inter(
+          color: AppColor.white,
+          fontSize: FontSize.s11,
+          fontWeight: FontWeightManager.bold,
+        ),
+        bodyLarge: GoogleFonts.inter(
+          color: AppColor.white,
+          fontSize: FontSize.s16,
+          fontWeight: FontWeightManager.semiBold,
+        ),
+        bodyMedium: GoogleFonts.inter(
+          color: AppColor.white,
+          fontSize: FontSize.s15,
+          fontWeight: FontWeightManager.regular,
+        ),
+        bodySmall: GoogleFonts.inter(
+          color: AppColor.white,
+          fontSize: FontSize.s10,
+          fontWeight: FontWeightManager.regular,
         ),
       );
 }
