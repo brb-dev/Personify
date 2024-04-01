@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:personify/application/auth/auth_bloc.dart';
-import 'package:personify/presentation/core/app_asset.dart';
-import 'package:personify/presentation/core/widgets/buttons/signin_button.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
+import '../../../application/auth/auth_bloc.dart';
+import '../../core/app_asset.dart';
+import '../../core/widgets/buttons/signin_button.dart';
 import '../../core/widgets/loading_shimmer/loading_shimmer.dart';
 
 @RoutePage()

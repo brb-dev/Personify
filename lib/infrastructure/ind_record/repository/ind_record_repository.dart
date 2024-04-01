@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:personify/domain/ind_record/entities/transcript_entity.dart';
 
 import '../../../config.dart';
 import '../../../domain/core/error/api_failure.dart';
 import '../../../domain/core/error/failure_handler.dart';
 import '../../../domain/ind_record/entities/ind_record_entity.dart';
+import '../../../domain/ind_record/entities/transcript_entity.dart';
 import '../../../domain/ind_record/repository/i_ind_record_repository.dart';
 import '../datasource/ind_record_local.dart';
 import '../datasource/ind_record_remote.dart';

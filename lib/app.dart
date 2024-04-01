@@ -2,15 +2,14 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:personify/firebase_options.dart';
 
 import 'application/auth/auth_bloc.dart';
 import 'application/core/player/player_bloc.dart';
 import 'application/ind_record/ind_record_bloc.dart';
 import 'config.dart';
+import 'firebase_options.dart';
 import 'infrastructure/core/firebase/firebase_remote_config.dart';
 import 'locator.dart';
 import 'presentation/core/routes/app_router.dart';
@@ -54,7 +53,8 @@ class App extends StatelessWidget {
           create: (context) => locator<AuthBloc>()..add(const AuthEvent.init()),
         ),
         BlocProvider<IndRecordBloc>(
-          create: (context) => locator<IndRecordBloc>(),
+          create: (context) =>
+              locator<IndRecordBloc>()..add(const IndRecordEvent.fetchData()),
         ),
         BlocProvider<PlayerBloc>(
           create: (context) =>

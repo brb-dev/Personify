@@ -5,10 +5,10 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:personify/domain/ind_record/entities/transcript_entity.dart';
 
 import '../../domain/core/error/api_failure.dart';
 import '../../domain/ind_record/entities/ind_record_entity.dart';
+import '../../domain/ind_record/entities/transcript_entity.dart';
 import '../../domain/ind_record/repository/i_ind_record_repository.dart';
 
 part 'ind_record_bloc.freezed.dart';

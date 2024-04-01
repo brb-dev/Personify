@@ -2,19 +2,15 @@ import 'dart:ui' as ui;
 
 import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:personify/application/auth/auth_bloc.dart';
-import 'package:personify/application/ind_record/ind_record_bloc.dart';
-import 'package:personify/presentation/core/theme/app_color.dart';
-import 'package:personify/presentation/core/widgets/loading_shimmer/loading_shimmer.dart';
 import 'package:readmore/readmore.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
+import '../../application/auth/auth_bloc.dart';
 import '../../application/core/player/player_bloc.dart' as player;
+import '../../application/ind_record/ind_record_bloc.dart';
 import '../../domain/ind_record/entities/ind_record_entity.dart';
 import '../core/app_asset.dart';
 import '../core/constants.dart';

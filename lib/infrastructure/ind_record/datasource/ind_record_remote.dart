@@ -5,13 +5,13 @@ import 'package:dart_openai/dart_openai.dart';
 import 'package:deepgram_speech_to_text/deepgram_speech_to_text.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:personify/domain/ind_record/entities/transcript_entity.dart';
-import 'package:personify/infrastructure/ind_record/dtos/transcript_dto.dart';
 
 import '../../../config.dart';
 import '../../../domain/core/error/exception_handler.dart';
 import '../../../domain/ind_record/entities/ind_record_entity.dart';
+import '../../../domain/ind_record/entities/transcript_entity.dart';
 import '../dtos/ind_record_dto.dart';
+import '../dtos/transcript_dto.dart';
 
 class IndRecordRemoteDataSource {
   DataSourceExceptionHandler dataSourceExceptionHandler;

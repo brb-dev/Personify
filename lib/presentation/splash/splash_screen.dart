@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:personify/application/core/player/player_bloc.dart';
 
 import '../../application/auth/auth_bloc.dart';
+import '../../application/core/player/player_bloc.dart';
 import '../core/app_asset.dart';
 import '../core/routes/app_router.gr.dart';
 import '../core/widgets/custom_image_view.dart';

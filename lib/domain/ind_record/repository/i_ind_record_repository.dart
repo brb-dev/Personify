@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:personify/domain/ind_record/entities/transcript_entity.dart';
 
 import '../../core/error/api_failure.dart';
 import '../entities/ind_record_entity.dart';
+import '../entities/transcript_entity.dart';
 
 abstract class IIndRecordRepository {
   Future<Either<ApiFailure, IndRecord>> fetchIndRecord();
