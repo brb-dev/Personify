@@ -57,6 +57,7 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
             state.copyWith(
               apiFailureOrSuccessOption: none(),
               tappedButton: TappedButton.fullText,
+              isExpanded: false,
             ),
           );
           return;
@@ -65,6 +66,7 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
           state.copyWith(
             isTranscriptFetching: true,
             apiFailureOrSuccessOption: none(),
+            isExpanded: false,
           ),
         );
         final Directory directory = await getApplicationDocumentsDirectory();
@@ -89,6 +91,9 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
                 tappedButton: TappedButton.fullText,
               ),
             );
+            if (state.data == IndRecord.empty()) {
+              add(const IndRecordEvent.fetchData());
+            }
           },
         );
       },
@@ -98,6 +103,7 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
             state.copyWith(
               apiFailureOrSuccessOption: none(),
               tappedButton: TappedButton.fullSummary,
+              isExpanded: false,
             ),
           );
           return;
@@ -106,6 +112,7 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
           state.copyWith(
             isSummaryFetching: true,
             apiFailureOrSuccessOption: none(),
+            isExpanded: false,
           ),
         );
         final recordOrError = await indRecordRepository.fetchSummary(
@@ -132,6 +139,9 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
           },
         );
       },
+      handleExpansion: (_) async => emit(
+        state.copyWith(isExpanded: !state.isExpanded),
+      ),
     );
   }
 }

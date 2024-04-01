@@ -48,7 +48,7 @@ class _IndTabSection extends StatelessWidget {
                       answer: e.value,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 80),
                 ],
               );
             }),
@@ -88,7 +88,7 @@ class _PersonalityRowItem extends StatelessWidget {
           ],
         ),
         const SizedBox(
-          height: 12,
+          height: 16,
         ),
       ],
     );
