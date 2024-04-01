@@ -26,7 +26,8 @@ class IndRecordBloc extends Bloc<IndRecordEvent, IndRecordState> {
   Future<void> _onEvent(
       IndRecordEvent event, Emitter<IndRecordState> emit) async {
     await event.map(
-      init: (_) async => emit(IndRecordState.initial()),
+      init: (_) async =>
+          emit(IndRecordState.initial().copyWith(data: state.data)),
       fetchData: (_) async {
         emit(
           state.copyWith(

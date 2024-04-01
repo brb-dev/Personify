@@ -13,7 +13,7 @@ class _TranscriptSection extends StatelessWidget {
               : state.tappedButton == TappedButton.fullSummary
                   ? state.transcript.summary.length
                   : 0;
-          final quocent = (textLength / 34) * 16;
+          final quocent = (textLength / 28) * 16;
 
           final lines = state.isExpanded ? quocent : 0;
 

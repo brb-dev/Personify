@@ -55,7 +55,6 @@ flutter:
     - assets/images/
     - assets/response/
     - assets/icon/
-    - assets/audio/audio.mp3
 
 flutter_launcher_icons:
   image_path_ios: "assets/icon/personify.png"

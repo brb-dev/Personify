@@ -39,13 +39,7 @@ class IndRecordRemoteDataSource {
         'punctuate': true,
         'utterances': true,
       });
-
-      final Directory directory = await getApplicationDocumentsDirectory();
-      final File file = File('${directory.path}/audio.mp3');
-      ByteData byteData = await rootBundle.load('assets/audio/audio.mp3');
-      final updatedFile =
-          await file.writeAsBytes(byteData.buffer.asUint8List());
-      String json1 = await deepgram.transcribeFromFile(updatedFile);
+      String json1 = await deepgram.transcribeFromFile(audioFile);
       final data1 = json.decode(json1);
 
       return TranscriptDto.fromJson(data1).toDomain();

@@ -147,9 +147,7 @@ class IndRecordScreen extends StatelessWidget {
       floatingActionButton: _FloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: _BottomNav(),
-      //resizeToAvoidBottomInset: true,
       extendBody: true,
-      //bottomSheet: _BottomNav(),
     );
   }
 }
