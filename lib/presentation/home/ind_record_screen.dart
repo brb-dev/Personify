@@ -2,7 +2,6 @@ import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:personify/presentation/home/widgets/show_more_widget.dart';
 import 'package:readmore/readmore.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';

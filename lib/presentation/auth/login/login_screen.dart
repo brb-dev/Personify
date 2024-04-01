@@ -6,6 +6,7 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../core/app_asset.dart';
+import '../../core/constants/string_constant.dart';
 import '../../core/widgets/buttons/signin_button.dart';
 import '../../core/widgets/loading_shimmer/loading_shimmer.dart';
 
@@ -29,7 +30,7 @@ class LoginScreen extends StatelessWidget {
               enabled: false,
               child: SigninButton(
                 imagePath: AppAssets.googleIcon,
-                label: 'Google Auth',
+                label: StringConstants.googleAuth,
                 onPressed: () {
                   context
                       .read<AuthBloc>()
@@ -44,12 +45,11 @@ class LoginScreen extends StatelessWidget {
               enabled: false,
               child: SigninButton(
                 imagePath: AppAssets.appleIcon,
-                label: 'Apple Auth',
+                label: StringConstants.appleAuth,
                 onPressed: () => showTopSnackBar(
                   Overlay.of(context),
                   const CustomSnackBar.error(
-                    message:
-                        'Apple auth has not been implemented as it was not part of the test.',
+                    message: StringConstants.notImplemented,
                   ),
                 ),
               ),

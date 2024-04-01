@@ -19,4 +19,7 @@ abstract class StringConstants {
       'Please record to see recordings.';
   static const String personalityScore = 'Personality Score';
   static const String smallQuote = 'Small Quote of Speaker1';
+  static const String googleAuth = 'Google Auth';
+  static const String appleAuth = 'Apple Auth';
+  static const String notImplemented = 'Not been implemented';
 }
