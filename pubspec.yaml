@@ -31,6 +31,10 @@ dependencies:
   google_fonts: ^6.2.1
   audio_waveforms: ^1.0.5
   path_provider: ^2.1.2
+  deepgram_speech_to_text: ^1.0.1
+  dart_openai: ^5.1.0
+  firebase_remote_config: ^4.3.19
+  
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +55,7 @@ flutter:
     - assets/images/
     - assets/response/
     - assets/icon/
+    - assets/audio/audio.mp3
 
 flutter_launcher_icons:
   image_path_ios: "assets/icon/personify.png"

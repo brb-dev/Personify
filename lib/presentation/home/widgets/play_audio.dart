@@ -68,7 +68,36 @@ class _PlayAudioState extends State<_PlayAudio> {
     await recorderController.record(
       path: path,
     );
-    // update state here to, for eample, change the button's state
+  }
+
+  Future<void> _handleRecording({
+    required BuildContext context,
+    required player.PlayerState state,
+  }) async {
+    if (state.isRecording) {
+      _startRecording();
+    } else {
+      final recordedPath = await recorderController.stop();
+      if (context.mounted && recordedPath != null) {
+        context.read<player.PlayerBloc>().add(
+              player.PlayerEvent.evaluateFileByteData(
+                path: recordedPath,
+              ),
+            );
+        context.read<IndRecordBloc>().add(
+              IndRecordEvent.fetchTranscript(
+                  datagramApiKey:
+                      context.read<AuthBloc>().state.user?.datagramKey ?? ''),
+            );
+      }
+    }
+  }
+
+  Future<void> _preparePlayer({required String path}) async {
+    await playerController.preparePlayer(
+      path: path,
+      shouldExtractWaveform: true,
+    );
   }
 
   @override
@@ -78,20 +107,8 @@ class _PlayAudioState extends State<_PlayAudio> {
         BlocListener<player.PlayerBloc, player.PlayerState>(
           listenWhen: (previous, current) =>
               previous.isRecording != current.isRecording,
-          listener: (context, state) async {
-            if (state.isRecording) {
-              _startRecording();
-            } else {
-              final recordedPath = await recorderController.stop();
-              if (context.mounted && recordedPath != null) {
-                context.read<player.PlayerBloc>().add(
-                      player.PlayerEvent.evaluateFileByteData(
-                        path: recordedPath,
-                      ),
-                    );
-              }
-            }
-          },
+          listener: (context, state) async =>
+              await _handleRecording(context: context, state: state),
         ),
       ],
       child: BlocConsumer<player.PlayerBloc, player.PlayerState>(
@@ -99,12 +116,8 @@ class _PlayAudioState extends State<_PlayAudio> {
             previous.audioData.lengthInBytes !=
                 current.audioData.lengthInBytes &&
             current.audioData.lengthInBytes != 0,
-        listener: (context, state) async {
-          await playerController.preparePlayer(
-            path: state.localFilePath,
-            shouldExtractWaveform: true,
-          );
-        },
+        listener: (context, state) async =>
+            _preparePlayer(path: state.localFilePath),
         buildWhen: (previous, current) =>
             previous.isPlaying != current.isPlaying ||
             previous.isRecording != current.isRecording ||

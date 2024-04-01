@@ -11,6 +11,7 @@ import 'application/auth/auth_bloc.dart';
 import 'application/core/player/player_bloc.dart';
 import 'application/ind_record/ind_record_bloc.dart';
 import 'config.dart';
+import 'infrastructure/core/firebase/firebase_remote_config.dart';
 import 'locator.dart';
 import 'presentation/core/routes/app_router.dart';
 import 'presentation/core/routes/router_observer.dart';
@@ -29,6 +30,7 @@ void runAppWithCrashlyticsAndLocalization({required Flavor flavor}) {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform);
+      await locator<FirebaseRemoteConfigService>().init();
       runApp(
         const App(),
       );

@@ -10,11 +10,15 @@ class Login with _$Login {
     required String displayName,
     required String email,
     required String photoURL,
+    required String datagramKey,
+    required String openAIKey,
   }) = _Login;
 
   factory Login.empty() => const Login(
         displayName: '',
         email: '',
         photoURL: '',
+        datagramKey: '',
+        openAIKey: '',
       );
 }

@@ -8,6 +8,7 @@ import 'domain/core/error/exception_handler.dart';
 import 'infrastructure/auth/datasource/auth_local.dart';
 import 'infrastructure/auth/datasource/auth_remote.dart';
 import 'infrastructure/auth/repository/auth_repository.dart';
+import 'infrastructure/core/firebase/firebase_remote_config.dart';
 import 'infrastructure/ind_record/datasource/ind_record_local.dart';
 import 'infrastructure/ind_record/datasource/ind_record_remote.dart';
 import 'infrastructure/ind_record/repository/ind_record_repository.dart';
@@ -20,6 +21,10 @@ void setupLocator() {
   locator.registerLazySingleton(() => Config());
   locator.registerLazySingleton(() => AppRouter());
   locator.registerLazySingleton(() => RouterObserver());
+
+  locator.registerLazySingleton(
+    () => FirebaseRemoteConfigService(),
+  );
 
   locator.registerLazySingleton(() => DataSourceExceptionHandler());
   locator.registerLazySingleton(() => AuthLocalDataSource());

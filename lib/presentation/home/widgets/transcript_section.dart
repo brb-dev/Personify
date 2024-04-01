@@ -45,92 +45,15 @@ class _TranscriptSection extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Expanded(
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.7,
-                        child: ReadMoreText(
-                          _text,
-                          trimMode: TrimMode.Line,
-                          trimLines: 4,
-                          colorClickableText:
-                              Theme.of(context).colorScheme.inversePrimary,
-                          trimCollapsedText: 'Show more',
-                          trimExpandedText: ' Show less',
-                          lessStyle: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Theme.of(context).colorScheme.inversePrimary,
-                          ),
-                          moreStyle: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Theme.of(context).colorScheme.inversePrimary,
-                          ),
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ),
-                    ),
+                    const _TranscriptTextWidget(),
                     const SizedBox(
                       height: 20,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        ElevatedButton(
-                          style: Theme.of(context)
-                              .elevatedButtonTheme
-                              .style
-                              ?.copyWith(
-                            side: MaterialStateProperty.resolveWith<BorderSide>(
-                              (_) {
-                                return BorderSide(
-                                  color: Theme.of(context).canvasColor,
-                                );
-                              },
-                            ),
-                            shape: MaterialStateProperty.resolveWith<
-                                OutlinedBorder>(
-                              (_) {
-                                return RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                );
-                              },
-                            ),
-                          ),
-                          onPressed: () {},
-                          child: Text(
-                            'Full Text',
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                        ),
-                        ElevatedButton(
-                          style: Theme.of(context)
-                              .elevatedButtonTheme
-                              .style
-                              ?.copyWith(
-                            side: MaterialStateProperty.resolveWith<BorderSide>(
-                              (_) {
-                                return BorderSide(
-                                  color: Theme.of(context).canvasColor,
-                                );
-                              },
-                            ),
-                            shape: MaterialStateProperty.resolveWith<
-                                OutlinedBorder>(
-                              (_) {
-                                return RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                );
-                              },
-                            ),
-                          ),
-                          onPressed: () {},
-                          child: Text(
-                            'Full Summary',
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                        ),
+                        _TranscriptButton(isFullText: true),
+                        _TranscriptButton(isFullText: false)
                       ],
                     )
                   ],

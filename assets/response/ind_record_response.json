@@ -1,105 +1,124 @@
 {
-    "fullText": "Hello",
-    "fullSummary": "How are you?",
+    "fullText": "",
+    "fullSummary": "",
     "speakers": [
         {
             "displayName": "John",
             "personalityScore": "8",
             "emotionMap": {
-                "Trust":"",
-                "Sentiment":"",
-                "Empathy":"",
-                "Charisma":"",
-                "Duty":"",
-                "Ethics":"",
-                "Influence":"",
-                "Rude":""
+                "Trust":"7",
+                "Sentiment":"2",
+                "Empathy":"5",
+                "Charisma":"7",
+                "Duty":"8",
+                "Ethics":"9",
+                "Influence":"3",
+                "Rude":"6"
             },
             "highlightMap": {
-                "Quotes reflecting attitude towards me":"",
-                "Conclusion":"",
-                "Favorite topics and interests":"",
-                "Least favorite topics":""
+                "Quotes reflecting attitude towards me":"Quotes: here will be a set of quotes",
+                "Conclusion":"First, speaker mentioned he keeps a healthy lifestyle, but he likes alchohol as well.",
+                "Favorite topics and interests":"Sports, Speaker mentioned he likes golf",
+                "Least favorite topics":"Politics"
             }
         },
         {
-            "displayName": "John",
+            "displayName": "Steve",
             "personalityScore": "8",
             "emotionMap": {
-                "Trust":"",
-                "Sentiment":"",
-                "Empathy":"",
-                "Charisma":"",
-                "Duty":"",
-                "Ethics":"",
-                "Influence":"",
-                "Rude":""
+                "Trust":"7",
+                "Sentiment":"2",
+                "Empathy":"5",
+                "Charisma":"7",
+                "Duty":"8",
+                "Ethics":"9",
+                "Influence":"3",
+                "Rude":"6"
             },
             "highlightMap": {
-                "Quotes reflecting attitude towards me":"",
-                "Conclusion":"",
-                "Favorite topics and interests":"",
-                "Least favorite topics":""
+                "Quotes reflecting attitude towards me":"Quotes: here will be a set of quotes",
+                "Conclusion":"First, speaker mentioned he keeps a healthy lifestyle, but he likes alchohol as well.",
+                "Favorite topics and interests":"Sports, Speaker mentioned he likes golf",
+                "Least favorite topics":"Politics"
             }
         },
         {
-            "displayName": "John",
+            "displayName": "Mike",
             "personalityScore": "8",
             "emotionMap": {
-                "Trust":"",
-                "Sentiment":"",
-                "Empathy":"",
-                "Charisma":"",
-                "Duty":"",
-                "Ethics":"",
-                "Influence":"",
-                "Rude":""
+                "Trust":"7",
+                "Sentiment":"2",
+                "Empathy":"5",
+                "Charisma":"7",
+                "Duty":"8",
+                "Ethics":"9",
+                "Influence":"3",
+                "Rude":"6"
             },
             "highlightMap": {
-                "Quotes reflecting attitude towards me":"",
-                "Conclusion":"",
-                "Favorite topics and interests":"",
-                "Least favorite topics":""
+                "Quotes reflecting attitude towards me":"Quotes: here will be a set of quotes",
+                "Conclusion":"First, speaker mentioned he keeps a healthy lifestyle, but he likes alchohol as well.",
+                "Favorite topics and interests":"Sports, Speaker mentioned he likes golf",
+                "Least favorite topics":"Politics"
             }
         },
         {
-            "displayName": "John",
+            "displayName": "Gori",
             "personalityScore": "8",
             "emotionMap": {
-                "Trust":"",
-                "Sentiment":"",
-                "Empathy":"",
-                "Charisma":"",
-                "Duty":"",
-                "Ethics":"",
-                "Influence":"",
-                "Rude":""
+                "Trust":"7",
+                "Sentiment":"2",
+                "Empathy":"5",
+                "Charisma":"7",
+                "Duty":"8",
+                "Ethics":"9",
+                "Influence":"3",
+                "Rude":"6"
             },
             "highlightMap": {
-                "Quotes reflecting attitude towards me":"",
-                "Conclusion":"",
-                "Favorite topics and interests":"",
-                "Least favorite topics":""
+                "Quotes reflecting attitude towards me":"Quotes: here will be a set of quotes",
+                "Conclusion":"First, speaker mentioned he keeps a healthy lifestyle, but he likes alchohol as well.",
+                "Favorite topics and interests":"Sports, Speaker mentioned he likes golf",
+                "Least favorite topics":"Politics"
             }
         },
         {
-            "displayName": "John",
+            "displayName": "Anna",
             "personalityScore": "8",
             "emotionMap": {
-                "Trust":"",
-                "Sentiment":"",
-                "Empathy":"",
-                "Charisma":"",
-                "Duty":"",
-                "Ethics":"",
-                "Influence":"",
-                "Rude":""
+                "Trust":"7",
+                "Sentiment":"2",
+                "Empathy":"5",
+                "Charisma":"7",
+                "Duty":"8",
+                "Ethics":"9",
+                "Influence":"3",
+                "Rude":"6"
             },
             "highlightMap": {
-                "Quotes reflecting attitude towards me":"",
-                "Conclusion":"",
-                "Favorite topics and interests":"",
-                "Least favorite topics":""
+                "Quotes reflecting attitude towards me":"Quotes: here will be a set of quotes",
+                "Conclusion":"First, speaker mentioned he keeps a healthy lifestyle, but he likes alchohol as well.",
+                "Favorite topics and interests":"Sports, Speaker mentioned he likes golf",
+                "Least favorite topics":"Politics"
+            }
+        },{
+            "displayName": "...",
+            "personalityScore": "8",
+            "emotionMap": {
+                "Trust":"7",
+                "Sentiment":"2",
+                "Empathy":"5",
+                "Charisma":"7",
+                "Duty":"8",
+                "Ethics":"9",
+                "Influence":"3",
+                "Rude":"6"
+            },
+            "highlightMap": {
+                "Quotes reflecting attitude towards me":"Quotes: here will be a set of quotes",
+                "Conclusion":"First, speaker mentioned he keeps a healthy lifestyle, but he likes alchohol as well.",
+                "Favorite topics and interests":"Sports, Speaker mentioned he likes golf",
+                "Least favorite topics":"Politics"
             }
         }
     ]

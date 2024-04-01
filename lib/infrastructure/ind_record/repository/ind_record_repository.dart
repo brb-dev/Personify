@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
+import 'package:personify/domain/ind_record/entities/transcript_entity.dart';
 
 import '../../../config.dart';
 import '../../../domain/core/error/api_failure.dart';
@@ -34,6 +37,40 @@ class IndRecordRepository implements IIndRecordRepository {
       final record = await remoteDataSource.fetchData();
 
       return Right(record);
+    } catch (e) {
+      return Left(FailureHandler.handleFailure(e));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, Transcript>> fetchTranscript({
+    required File audioFile,
+    required String datagrapApiKey,
+  }) async {
+    try {
+      final record = await remoteDataSource.fetchTranscript(
+        audioFile: audioFile,
+        datagramApiKey: datagrapApiKey,
+      );
+
+      return Right(record);
+    } catch (e) {
+      return Left(FailureHandler.handleFailure(e));
+    }
+  }
+
+  @override
+  Future<Either<ApiFailure, String>> fetchSummary({
+    required String transcript,
+    required String opeAIApiKey,
+  }) async {
+    try {
+      final summary = await remoteDataSource.fetchSummary(
+        transcript: transcript,
+        openAIApiKey: opeAIApiKey,
+      );
+
+      return Right(summary);
     } catch (e) {
       return Left(FailureHandler.handleFailure(e));
     }

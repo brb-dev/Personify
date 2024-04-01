@@ -2,12 +2,16 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:personify/config.dart';
+import 'package:personify/locator.dart';
 
 import '../../domain/auth/entities/login_entity.dart';
 import '../../domain/auth/repository/i_auth_repository.dart';
 import '../../domain/core/error/api_failure.dart';
+import '../../infrastructure/core/firebase/firebase_remote_config.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
@@ -29,19 +33,42 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(const AuthState.loading(isLoading: true));
         final Either<ApiFailure, Stream<User?>> result =
             await authRepository.isLoggedIn();
+        FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.instance;
+        await remoteConfig.setConfigSettings(RemoteConfigSettings(
+          fetchTimeout: const Duration(minutes: 1),
+          minimumFetchInterval: const Duration(hours: 12),
+        ));
+        await remoteConfig.ensureInitialized();
+        await remoteConfig.fetchAndActivate();
         await result.fold(
           (invalid) async => emit(const AuthState.unauthenticated()),
-          (userStream) async => userStream.listen((user) => user != null
+          (userStream) async => locator<Config>().appFlavor == Flavor.mock
               ? emit(
                   AuthState.authenticated(
                     user: Login.empty().copyWith(
-                      displayName: user.displayName ?? '',
-                      email: user.email ?? '',
-                      photoURL: user.photoURL ?? '',
+                      displayName: 'John Doe',
+                      email: 'johndoe@yopmail.com',
+                      photoURL: '',
+                      datagramKey: '',
+                      openAIKey: '',
                     ),
                   ),
                 )
-              : emit(const AuthState.unauthenticated())),
+              : userStream.listen((user) => user != null
+                  ? emit(
+                      AuthState.authenticated(
+                        user: Login.empty().copyWith(
+                          displayName: user.displayName ?? '',
+                          email: user.email ?? '',
+                          photoURL: user.photoURL ?? '',
+                          datagramKey: locator<FirebaseRemoteConfigService>()
+                              .getDatagramApiKey(),
+                          openAIKey: locator<FirebaseRemoteConfigService>()
+                              .getOpenAIApiKey(),
+                        ),
+                      ),
+                    )
+                  : emit(const AuthState.unauthenticated())),
         );
       },
       logout: (e) async {

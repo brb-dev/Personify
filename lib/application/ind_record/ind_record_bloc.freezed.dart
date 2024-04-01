@@ -20,18 +20,24 @@ mixin _$IndRecordEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() fetchData,
+    required TResult Function(String datagramApiKey) fetchTranscript,
+    required TResult Function(String openAiApiKey) fetchSummary,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? fetchData,
+    TResult? Function(String datagramApiKey)? fetchTranscript,
+    TResult? Function(String openAiApiKey)? fetchSummary,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? fetchData,
+    TResult Function(String datagramApiKey)? fetchTranscript,
+    TResult Function(String openAiApiKey)? fetchSummary,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$IndRecordEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_FetchData value) fetchData,
+    required TResult Function(_FetchTranscript value) fetchTranscript,
+    required TResult Function(_FetchSummary value) fetchSummary,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_FetchData value)? fetchData,
+    TResult? Function(_FetchTranscript value)? fetchTranscript,
+    TResult? Function(_FetchSummary value)? fetchSummary,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_FetchData value)? fetchData,
+    TResult Function(_FetchTranscript value)? fetchTranscript,
+    TResult Function(_FetchSummary value)? fetchSummary,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +125,8 @@ class _$InitImpl implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() fetchData,
+    required TResult Function(String datagramApiKey) fetchTranscript,
+    required TResult Function(String openAiApiKey) fetchSummary,
   }) {
     return init();
   }
@@ -122,6 +136,8 @@ class _$InitImpl implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? fetchData,
+    TResult? Function(String datagramApiKey)? fetchTranscript,
+    TResult? Function(String openAiApiKey)? fetchSummary,
   }) {
     return init?.call();
   }
@@ -131,6 +147,8 @@ class _$InitImpl implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? fetchData,
+    TResult Function(String datagramApiKey)? fetchTranscript,
+    TResult Function(String openAiApiKey)? fetchSummary,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -144,6 +162,8 @@ class _$InitImpl implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_FetchData value) fetchData,
+    required TResult Function(_FetchTranscript value) fetchTranscript,
+    required TResult Function(_FetchSummary value) fetchSummary,
   }) {
     return init(this);
   }
@@ -153,6 +173,8 @@ class _$InitImpl implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_FetchData value)? fetchData,
+    TResult? Function(_FetchTranscript value)? fetchTranscript,
+    TResult? Function(_FetchSummary value)? fetchSummary,
   }) {
     return init?.call(this);
   }
@@ -162,6 +184,8 @@ class _$InitImpl implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_FetchData value)? fetchData,
+    TResult Function(_FetchTranscript value)? fetchTranscript,
+    TResult Function(_FetchSummary value)? fetchSummary,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -215,6 +239,8 @@ class _$FetchDataImpl implements _FetchData {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() fetchData,
+    required TResult Function(String datagramApiKey) fetchTranscript,
+    required TResult Function(String openAiApiKey) fetchSummary,
   }) {
     return fetchData();
   }
@@ -224,6 +250,8 @@ class _$FetchDataImpl implements _FetchData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? fetchData,
+    TResult? Function(String datagramApiKey)? fetchTranscript,
+    TResult? Function(String openAiApiKey)? fetchSummary,
   }) {
     return fetchData?.call();
   }
@@ -233,6 +261,8 @@ class _$FetchDataImpl implements _FetchData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? fetchData,
+    TResult Function(String datagramApiKey)? fetchTranscript,
+    TResult Function(String openAiApiKey)? fetchSummary,
     required TResult orElse(),
   }) {
     if (fetchData != null) {
@@ -246,6 +276,8 @@ class _$FetchDataImpl implements _FetchData {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_FetchData value) fetchData,
+    required TResult Function(_FetchTranscript value) fetchTranscript,
+    required TResult Function(_FetchSummary value) fetchSummary,
   }) {
     return fetchData(this);
   }
@@ -255,6 +287,8 @@ class _$FetchDataImpl implements _FetchData {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_FetchData value)? fetchData,
+    TResult? Function(_FetchTranscript value)? fetchTranscript,
+    TResult? Function(_FetchSummary value)? fetchSummary,
   }) {
     return fetchData?.call(this);
   }
@@ -264,6 +298,8 @@ class _$FetchDataImpl implements _FetchData {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_FetchData value)? fetchData,
+    TResult Function(_FetchTranscript value)? fetchTranscript,
+    TResult Function(_FetchSummary value)? fetchSummary,
     required TResult orElse(),
   }) {
     if (fetchData != null) {
@@ -278,9 +314,310 @@ abstract class _FetchData implements IndRecordEvent {
 }
 
 /// @nodoc
+abstract class _$$FetchTranscriptImplCopyWith<$Res> {
+  factory _$$FetchTranscriptImplCopyWith(_$FetchTranscriptImpl value,
+          $Res Function(_$FetchTranscriptImpl) then) =
+      __$$FetchTranscriptImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String datagramApiKey});
+}
+
+/// @nodoc
+class __$$FetchTranscriptImplCopyWithImpl<$Res>
+    extends _$IndRecordEventCopyWithImpl<$Res, _$FetchTranscriptImpl>
+    implements _$$FetchTranscriptImplCopyWith<$Res> {
+  __$$FetchTranscriptImplCopyWithImpl(
+      _$FetchTranscriptImpl _value, $Res Function(_$FetchTranscriptImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? datagramApiKey = null,
+  }) {
+    return _then(_$FetchTranscriptImpl(
+      datagramApiKey: null == datagramApiKey
+          ? _value.datagramApiKey
+          : datagramApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchTranscriptImpl implements _FetchTranscript {
+  const _$FetchTranscriptImpl({required this.datagramApiKey});
+
+  @override
+  final String datagramApiKey;
+
+  @override
+  String toString() {
+    return 'IndRecordEvent.fetchTranscript(datagramApiKey: $datagramApiKey)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchTranscriptImpl &&
+            (identical(other.datagramApiKey, datagramApiKey) ||
+                other.datagramApiKey == datagramApiKey));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, datagramApiKey);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchTranscriptImplCopyWith<_$FetchTranscriptImpl> get copyWith =>
+      __$$FetchTranscriptImplCopyWithImpl<_$FetchTranscriptImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() fetchData,
+    required TResult Function(String datagramApiKey) fetchTranscript,
+    required TResult Function(String openAiApiKey) fetchSummary,
+  }) {
+    return fetchTranscript(datagramApiKey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? fetchData,
+    TResult? Function(String datagramApiKey)? fetchTranscript,
+    TResult? Function(String openAiApiKey)? fetchSummary,
+  }) {
+    return fetchTranscript?.call(datagramApiKey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? fetchData,
+    TResult Function(String datagramApiKey)? fetchTranscript,
+    TResult Function(String openAiApiKey)? fetchSummary,
+    required TResult orElse(),
+  }) {
+    if (fetchTranscript != null) {
+      return fetchTranscript(datagramApiKey);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_FetchData value) fetchData,
+    required TResult Function(_FetchTranscript value) fetchTranscript,
+    required TResult Function(_FetchSummary value) fetchSummary,
+  }) {
+    return fetchTranscript(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_FetchData value)? fetchData,
+    TResult? Function(_FetchTranscript value)? fetchTranscript,
+    TResult? Function(_FetchSummary value)? fetchSummary,
+  }) {
+    return fetchTranscript?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_FetchData value)? fetchData,
+    TResult Function(_FetchTranscript value)? fetchTranscript,
+    TResult Function(_FetchSummary value)? fetchSummary,
+    required TResult orElse(),
+  }) {
+    if (fetchTranscript != null) {
+      return fetchTranscript(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchTranscript implements IndRecordEvent {
+  const factory _FetchTranscript({required final String datagramApiKey}) =
+      _$FetchTranscriptImpl;
+
+  String get datagramApiKey;
+  @JsonKey(ignore: true)
+  _$$FetchTranscriptImplCopyWith<_$FetchTranscriptImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FetchSummaryImplCopyWith<$Res> {
+  factory _$$FetchSummaryImplCopyWith(
+          _$FetchSummaryImpl value, $Res Function(_$FetchSummaryImpl) then) =
+      __$$FetchSummaryImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String openAiApiKey});
+}
+
+/// @nodoc
+class __$$FetchSummaryImplCopyWithImpl<$Res>
+    extends _$IndRecordEventCopyWithImpl<$Res, _$FetchSummaryImpl>
+    implements _$$FetchSummaryImplCopyWith<$Res> {
+  __$$FetchSummaryImplCopyWithImpl(
+      _$FetchSummaryImpl _value, $Res Function(_$FetchSummaryImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? openAiApiKey = null,
+  }) {
+    return _then(_$FetchSummaryImpl(
+      openAiApiKey: null == openAiApiKey
+          ? _value.openAiApiKey
+          : openAiApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchSummaryImpl implements _FetchSummary {
+  const _$FetchSummaryImpl({required this.openAiApiKey});
+
+  @override
+  final String openAiApiKey;
+
+  @override
+  String toString() {
+    return 'IndRecordEvent.fetchSummary(openAiApiKey: $openAiApiKey)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FetchSummaryImpl &&
+            (identical(other.openAiApiKey, openAiApiKey) ||
+                other.openAiApiKey == openAiApiKey));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, openAiApiKey);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FetchSummaryImplCopyWith<_$FetchSummaryImpl> get copyWith =>
+      __$$FetchSummaryImplCopyWithImpl<_$FetchSummaryImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() fetchData,
+    required TResult Function(String datagramApiKey) fetchTranscript,
+    required TResult Function(String openAiApiKey) fetchSummary,
+  }) {
+    return fetchSummary(openAiApiKey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? fetchData,
+    TResult? Function(String datagramApiKey)? fetchTranscript,
+    TResult? Function(String openAiApiKey)? fetchSummary,
+  }) {
+    return fetchSummary?.call(openAiApiKey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? fetchData,
+    TResult Function(String datagramApiKey)? fetchTranscript,
+    TResult Function(String openAiApiKey)? fetchSummary,
+    required TResult orElse(),
+  }) {
+    if (fetchSummary != null) {
+      return fetchSummary(openAiApiKey);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_FetchData value) fetchData,
+    required TResult Function(_FetchTranscript value) fetchTranscript,
+    required TResult Function(_FetchSummary value) fetchSummary,
+  }) {
+    return fetchSummary(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_FetchData value)? fetchData,
+    TResult? Function(_FetchTranscript value)? fetchTranscript,
+    TResult? Function(_FetchSummary value)? fetchSummary,
+  }) {
+    return fetchSummary?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_FetchData value)? fetchData,
+    TResult Function(_FetchTranscript value)? fetchTranscript,
+    TResult Function(_FetchSummary value)? fetchSummary,
+    required TResult orElse(),
+  }) {
+    if (fetchSummary != null) {
+      return fetchSummary(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchSummary implements IndRecordEvent {
+  const factory _FetchSummary({required final String openAiApiKey}) =
+      _$FetchSummaryImpl;
+
+  String get openAiApiKey;
+  @JsonKey(ignore: true)
+  _$$FetchSummaryImplCopyWith<_$FetchSummaryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$IndRecordState {
   bool get isFetching => throw _privateConstructorUsedError;
+  bool get isTranscriptFetching => throw _privateConstructorUsedError;
+  bool get isSummaryFetching => throw _privateConstructorUsedError;
+  bool get isFullTextTapped => throw _privateConstructorUsedError;
+  bool get isFullSummaryTapped => throw _privateConstructorUsedError;
   IndRecord get data => throw _privateConstructorUsedError;
+  Transcript get transcript => throw _privateConstructorUsedError;
+  TappedButton get tappedButton => throw _privateConstructorUsedError;
   Option<Either<ApiFailure, dynamic>> get apiFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -297,10 +634,17 @@ abstract class $IndRecordStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isFetching,
+      bool isTranscriptFetching,
+      bool isSummaryFetching,
+      bool isFullTextTapped,
+      bool isFullSummaryTapped,
       IndRecord data,
+      Transcript transcript,
+      TappedButton tappedButton,
       Option<Either<ApiFailure, dynamic>> apiFailureOrSuccessOption});
 
   $IndRecordCopyWith<$Res> get data;
+  $TranscriptCopyWith<$Res> get transcript;
 }
 
 /// @nodoc
@@ -317,7 +661,13 @@ class _$IndRecordStateCopyWithImpl<$Res, $Val extends IndRecordState>
   @override
   $Res call({
     Object? isFetching = null,
+    Object? isTranscriptFetching = null,
+    Object? isSummaryFetching = null,
+    Object? isFullTextTapped = null,
+    Object? isFullSummaryTapped = null,
     Object? data = null,
+    Object? transcript = null,
+    Object? tappedButton = null,
     Object? apiFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
@@ -325,10 +675,34 @@ class _$IndRecordStateCopyWithImpl<$Res, $Val extends IndRecordState>
           ? _value.isFetching
           : isFetching // ignore: cast_nullable_to_non_nullable
               as bool,
+      isTranscriptFetching: null == isTranscriptFetching
+          ? _value.isTranscriptFetching
+          : isTranscriptFetching // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSummaryFetching: null == isSummaryFetching
+          ? _value.isSummaryFetching
+          : isSummaryFetching // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isFullTextTapped: null == isFullTextTapped
+          ? _value.isFullTextTapped
+          : isFullTextTapped // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isFullSummaryTapped: null == isFullSummaryTapped
+          ? _value.isFullSummaryTapped
+          : isFullSummaryTapped // ignore: cast_nullable_to_non_nullable
+              as bool,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as IndRecord,
+      transcript: null == transcript
+          ? _value.transcript
+          : transcript // ignore: cast_nullable_to_non_nullable
+              as Transcript,
+      tappedButton: null == tappedButton
+          ? _value.tappedButton
+          : tappedButton // ignore: cast_nullable_to_non_nullable
+              as TappedButton,
       apiFailureOrSuccessOption: null == apiFailureOrSuccessOption
           ? _value.apiFailureOrSuccessOption
           : apiFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -343,6 +717,14 @@ class _$IndRecordStateCopyWithImpl<$Res, $Val extends IndRecordState>
       return _then(_value.copyWith(data: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TranscriptCopyWith<$Res> get transcript {
+    return $TranscriptCopyWith<$Res>(_value.transcript, (value) {
+      return _then(_value.copyWith(transcript: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -355,11 +737,19 @@ abstract class _$$IndRecordStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isFetching,
+      bool isTranscriptFetching,
+      bool isSummaryFetching,
+      bool isFullTextTapped,
+      bool isFullSummaryTapped,
       IndRecord data,
+      Transcript transcript,
+      TappedButton tappedButton,
       Option<Either<ApiFailure, dynamic>> apiFailureOrSuccessOption});
 
   @override
   $IndRecordCopyWith<$Res> get data;
+  @override
+  $TranscriptCopyWith<$Res> get transcript;
 }
 
 /// @nodoc
@@ -374,7 +764,13 @@ class __$$IndRecordStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isFetching = null,
+    Object? isTranscriptFetching = null,
+    Object? isSummaryFetching = null,
+    Object? isFullTextTapped = null,
+    Object? isFullSummaryTapped = null,
     Object? data = null,
+    Object? transcript = null,
+    Object? tappedButton = null,
     Object? apiFailureOrSuccessOption = null,
   }) {
     return _then(_$IndRecordStateImpl(
@@ -382,10 +778,34 @@ class __$$IndRecordStateImplCopyWithImpl<$Res>
           ? _value.isFetching
           : isFetching // ignore: cast_nullable_to_non_nullable
               as bool,
+      isTranscriptFetching: null == isTranscriptFetching
+          ? _value.isTranscriptFetching
+          : isTranscriptFetching // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSummaryFetching: null == isSummaryFetching
+          ? _value.isSummaryFetching
+          : isSummaryFetching // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isFullTextTapped: null == isFullTextTapped
+          ? _value.isFullTextTapped
+          : isFullTextTapped // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isFullSummaryTapped: null == isFullSummaryTapped
+          ? _value.isFullSummaryTapped
+          : isFullSummaryTapped // ignore: cast_nullable_to_non_nullable
+              as bool,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as IndRecord,
+      transcript: null == transcript
+          ? _value.transcript
+          : transcript // ignore: cast_nullable_to_non_nullable
+              as Transcript,
+      tappedButton: null == tappedButton
+          ? _value.tappedButton
+          : tappedButton // ignore: cast_nullable_to_non_nullable
+              as TappedButton,
       apiFailureOrSuccessOption: null == apiFailureOrSuccessOption
           ? _value.apiFailureOrSuccessOption
           : apiFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -399,20 +819,38 @@ class __$$IndRecordStateImplCopyWithImpl<$Res>
 class _$IndRecordStateImpl extends _IndRecordState {
   const _$IndRecordStateImpl(
       {required this.isFetching,
+      required this.isTranscriptFetching,
+      required this.isSummaryFetching,
+      required this.isFullTextTapped,
+      required this.isFullSummaryTapped,
       required this.data,
+      required this.transcript,
+      required this.tappedButton,
       required this.apiFailureOrSuccessOption})
       : super._();
 
   @override
   final bool isFetching;
   @override
+  final bool isTranscriptFetching;
+  @override
+  final bool isSummaryFetching;
+  @override
+  final bool isFullTextTapped;
+  @override
+  final bool isFullSummaryTapped;
+  @override
   final IndRecord data;
+  @override
+  final Transcript transcript;
+  @override
+  final TappedButton tappedButton;
   @override
   final Option<Either<ApiFailure, dynamic>> apiFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'IndRecordState(isFetching: $isFetching, data: $data, apiFailureOrSuccessOption: $apiFailureOrSuccessOption)';
+    return 'IndRecordState(isFetching: $isFetching, isTranscriptFetching: $isTranscriptFetching, isSummaryFetching: $isSummaryFetching, isFullTextTapped: $isFullTextTapped, isFullSummaryTapped: $isFullSummaryTapped, data: $data, transcript: $transcript, tappedButton: $tappedButton, apiFailureOrSuccessOption: $apiFailureOrSuccessOption)';
   }
 
   @override
@@ -422,15 +860,36 @@ class _$IndRecordStateImpl extends _IndRecordState {
             other is _$IndRecordStateImpl &&
             (identical(other.isFetching, isFetching) ||
                 other.isFetching == isFetching) &&
+            (identical(other.isTranscriptFetching, isTranscriptFetching) ||
+                other.isTranscriptFetching == isTranscriptFetching) &&
+            (identical(other.isSummaryFetching, isSummaryFetching) ||
+                other.isSummaryFetching == isSummaryFetching) &&
+            (identical(other.isFullTextTapped, isFullTextTapped) ||
+                other.isFullTextTapped == isFullTextTapped) &&
+            (identical(other.isFullSummaryTapped, isFullSummaryTapped) ||
+                other.isFullSummaryTapped == isFullSummaryTapped) &&
             (identical(other.data, data) || other.data == data) &&
+            (identical(other.transcript, transcript) ||
+                other.transcript == transcript) &&
+            (identical(other.tappedButton, tappedButton) ||
+                other.tappedButton == tappedButton) &&
             (identical(other.apiFailureOrSuccessOption,
                     apiFailureOrSuccessOption) ||
                 other.apiFailureOrSuccessOption == apiFailureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isFetching, data, apiFailureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isFetching,
+      isTranscriptFetching,
+      isSummaryFetching,
+      isFullTextTapped,
+      isFullSummaryTapped,
+      data,
+      transcript,
+      tappedButton,
+      apiFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -443,7 +902,13 @@ class _$IndRecordStateImpl extends _IndRecordState {
 abstract class _IndRecordState extends IndRecordState {
   const factory _IndRecordState(
       {required final bool isFetching,
+      required final bool isTranscriptFetching,
+      required final bool isSummaryFetching,
+      required final bool isFullTextTapped,
+      required final bool isFullSummaryTapped,
       required final IndRecord data,
+      required final Transcript transcript,
+      required final TappedButton tappedButton,
       required final Option<Either<ApiFailure, dynamic>>
           apiFailureOrSuccessOption}) = _$IndRecordStateImpl;
   const _IndRecordState._() : super._();
@@ -451,7 +916,19 @@ abstract class _IndRecordState extends IndRecordState {
   @override
   bool get isFetching;
   @override
+  bool get isTranscriptFetching;
+  @override
+  bool get isSummaryFetching;
+  @override
+  bool get isFullTextTapped;
+  @override
+  bool get isFullSummaryTapped;
+  @override
   IndRecord get data;
+  @override
+  Transcript get transcript;
+  @override
+  TappedButton get tappedButton;
   @override
   Option<Either<ApiFailure, dynamic>> get apiFailureOrSuccessOption;
   @override
